@@ -57,7 +57,6 @@
         <ErrorReport>none</ErrorReport>
     </PropertyGroup>
     <ItemGroup>
-        <ProjectReference Include="..\..\..\GRYLibraryBuild\Submodules\GRYLibrary\GRYLibrary\GRYLibrary\GRYLibrary.csproj" />
         <ProjectReference Include="..\ClientInformation\ClientInformation.csproj" />
         <PackageReference Include="coverlet.collector" Version="6.0.2">
             <PrivateAssets>all</PrivateAssets>
@@ -68,6 +67,7 @@
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
         <PackageReference Include="ExtendedXmlSerializer" Version="3.7.18" />
+        <PackageReference Include="GRYLibrary" Version="0.12.107" />
         <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
         <PackageReference Include="Microsoft.CodeCoverage" Version="17.11.1" />
         <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.8" />
@@ -89,8 +89,5 @@
         <PackageReference Include="NSwag.AspNetCore" Version="14.1.0" />
         <PackageReference Include="System.Collections.Immutable" Version="8.0.0" />
         <PackageReference Include="System.Reactive" Version="6.0.1" />
-    </ItemGroup>
-    <ItemGroup>
-      <Folder Include="TestUtilities\" />
     </ItemGroup>
 </Project>

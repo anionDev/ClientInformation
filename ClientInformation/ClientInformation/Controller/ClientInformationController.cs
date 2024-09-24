@@ -19,18 +19,26 @@ namespace ClientInformation.Core.Controller
 
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(decimal))]
-        [Route($"{nameof(this.Information)}")]
-        public IActionResult Information()
-        {
-            return this.Information("TODO insert client-ip here.");
-        }
-        [HttpGet]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(decimal))]
         [Route($"{nameof(this.Information)}/{{{nameof(ip)}}}")]
         public IActionResult Information([FromRoute] string ip)
         {
-            string result = "not implemented yet";//TODO
+            var result = this._ClientInformationService.GetClientInformation(ip);
             return this.Ok(result);
+        }
+
+        [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(decimal))]
+        [Route($"{nameof(this.Information)}")]
+        public IActionResult Information()
+        {
+            return this.Information(this.GetIP());
+        }
+        private string GetIP()
+        {
+            string result = this.Request.HttpContext.Connection.RemoteIpAddress.ToString();
+            //On localhost for example this function returns "::ffff:127.0.0.1". 
+            //TODO extract real "plain"-ip-address
+            return result;
         }
     }
 }

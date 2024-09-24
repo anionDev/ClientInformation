@@ -12,7 +12,7 @@ namespace ClientInformation.Core.Miscellaneous
         private readonly IGeneralLogger _Logger;
         public HealthCheck(IGeneralLogger logger)
         {
-            _Logger = logger;
+            this._Logger = logger;
         }
         public async Task<HealthCheckResult> CheckHealthAsync(HealthCheckContext context, CancellationToken cancellationToken = default)
         {

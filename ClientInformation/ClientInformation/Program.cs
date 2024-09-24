@@ -33,9 +33,7 @@ namespace ClientInformation.Core
                 apiServerConfiguration.SetInitialzationInformationAction = (initializationInformation) =>
                 {
                     string domain = Tools.GetDefaultDomainValue(GeneralConstants.CodeUnitName);
-                    uint defaultUpdateIntervalInMinutes = 30;//Load current price 2 time per hour
-                    uint updateIntervalInMinutesForHistoricalData = 1;//Load historical prices 1 time per hour. This value can be updated for example to 2, 3, 6, 10, 20, 30, 60. Important. This value has 2 constraints: 1.: 0 < value <=60. 2.: 60/value must be an integer without decimal places.
-
+                
                     initializationInformation.ApplicationConstants.CommonRoutesHostInformation = new HostCommonRoutes();
                     initializationInformation.ApplicationConstants.HostMaintenanceInformation = new HostMaintenanceRoutes();
                     initializationInformation.ApplicationConstants.LoggingMiddleware = typeof(DRequestLoggingMiddleware);

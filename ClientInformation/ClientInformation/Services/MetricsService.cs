@@ -4,7 +4,6 @@ using GRYLibrary.Core.APIServer.Settings;
 using GRYLibrary.Core.Logging.GRYLogger;
 using System.Diagnostics.Metrics;
 using System;
-using Microsoft.Extensions.Logging;
 using System.Threading;
 
 namespace ClientInformation.Core.Services
@@ -25,7 +24,6 @@ namespace ClientInformation.Core.Services
         {
             try
             {
-                this._Logger.Log("Calculate metrics...", LogLevel.Debug);
                 this.MetricAmountOfDataSets.Add(5);//TODO set actual value
             }
             catch (Exception exception)
