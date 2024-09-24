@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ClientInformation": {
+      "commandName": "Project",
+      "commandLineArgs": "--TestRun"
+    }
+  }
+}

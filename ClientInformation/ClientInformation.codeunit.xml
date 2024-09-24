@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<cps:codeunit xmlns:cps="https://projects.aniondev.de/PublicProjects/Common/ProjectTemplates/-/tree/main/Conventions/RepositoryStructure/CommonProjectStructure" codeunitspecificationversion="2.8.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://projects.aniondev.de/PublicProjects/Common/ProjectTemplates/-/raw/v2.8.0/Conventions/RepositoryStructure/CommonProjectStructure/codeunit.xsd" enabled="true">
+    <cps:name>ClientInformation</cps:name>
+    <cps:version>0.0.1</cps:version>
+    <cps:properties codeunithastestablesourcecode="true" codeunithasupdatabledependencies="true" throwexceptionifcodeunitfilecannotbevalidated="true" developmentState="Maintenance-updates only" description="ClientInformation is a service to retrieve information of the own HTTP-client.">
+        <cps:testsettings minimalcodecoverageinpercent="1"/>
+        <cps:pipelinedemands>
+        </cps:pipelinedemands>
+        <cps:updatesettings>
+            <cps:ignoreddependencies>
+                <cps:ignoreddependency>MSTest.TestAdapter</cps:ignoreddependency>
+                <cps:ignoreddependency>MSTest.TestFramework</cps:ignoreddependency>            
+            </cps:ignoreddependencies>
+        </cps:updatesettings>        
+    </cps:properties>
+    <cps:dependentcodeunits/>
+    <cps:developerteam>
+        <cps:developer>
+            <cps:developername>Marius Göcke</cps:developername>
+            <cps:developeremailaddress>marius.goecke@gmail.com</cps:developeremailaddress>
+        </cps:developer>
+    </cps:developerteam>
+</cps:codeunit>

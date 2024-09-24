@@ -1,0 +1,71 @@
+{
+	"folders": [
+		{
+			"path": ".",
+			"name": "Entire repository",
+		},
+		{
+			"path": "./ClientInformation",
+			"name": "ClientInformation",
+		},
+		{
+			"path": "./ClientInformationC",
+			"name": "ClientInformationC",
+		},
+	],
+	"tasks": {
+		"version": "2.0.0",
+		"tasks": [
+			{
+				"label": "Build all codeunits",
+				"command": "SCBuildCodeunits",
+				"args": [
+					"--buildenvironment",
+					"Development"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "${workspaceFolder}",
+				},
+			},
+			{
+				"label": "ClientInformationC: Run example",
+				"command": "python RunExample.py",
+				"args": [],
+				"type": "shell",
+				"options": {
+					"cwd": "${workspaceFolder}/ClientInformationC/Other/Reference/ReferenceContent/Examples/MinimalDockerComposeFile",
+				},
+			}
+		]
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+			{
+				"name": "Debug current python-file",
+				"type": "python",
+				"request": "launch",
+				"program": "${file}",
+				"console": "integratedTerminal"
+			},
+			{
+				"name": "Debug current bash-script",
+				"type": "bashdb",
+				"request": "launch",
+				"program": "${file}",
+				"cwd": "${workspaceFolder}"
+			}
+		]
+	},
+	"settings": {
+		"window.title": "${dirty} ${rootName}", // see https://code.visualstudio.com/updates/v1_10#_configurable-window-title
+		"spellright.documentTypes": [
+			"markdown",
+			"plaintext",
+		],
+		"spellright.language": [
+			"en",
+		],
+	}
+}
