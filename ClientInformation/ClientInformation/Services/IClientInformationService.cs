@@ -2,5 +2,6 @@
 {
     public interface IClientInformationService
     {
+        public Model.ClientInformationRecord GetClientInformation(string ipAddress);
     }
 }

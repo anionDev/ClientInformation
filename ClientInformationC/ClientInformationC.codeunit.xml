@@ -2,7 +2,7 @@
 <cps:codeunit xmlns:cps="https://projects.aniondev.de/PublicProjects/Common/ProjectTemplates/-/tree/main/Conventions/RepositoryStructure/CommonProjectStructure" codeunitspecificationversion="2.8.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://projects.aniondev.de/PublicProjects/Common/ProjectTemplates/-/raw/v2.8.0/Conventions/RepositoryStructure/CommonProjectStructure/codeunit.xsd" enabled="true">
     <cps:name>ClientInformationC</cps:name>
-    <cps:version>1.2.5</cps:version>
+    <cps:version>0.0.1</cps:version>
     <cps:properties codeunithastestablesourcecode="false" codeunithasupdatabledependencies="false" throwexceptionifcodeunitfilecannotbevalidated="true" developmentState="Active development" description="ClientInformationC is a containerized variant of ClientInformation.">
         <cps:pipelinedemands>
         </cps:pipelinedemands>

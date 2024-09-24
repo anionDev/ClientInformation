@@ -2,34 +2,12 @@ version: '3.2'
 
 services:
   clientinformationc:
-    image: clientinformationc:1.2.5
+    image: clientinformationc:0.0.1
     container_name: 'clientinformationc'
     ports:
       - "443:443"
     volumes:
       - "./Volumes/Configuration:/Workspace/Configuration"
       - "./Volumes/Logs/Application:/Workspace/Logs"
-    depends_on:
-      - clientinformationc_database
-
-  clientinformationc_database:
-    # connectionstring: "Server=clientinformationc_database; Port=3306; Database=ClientInformationDatabase; Uid=user; Pwd=pa55w0rd;"
-    image: mariadb:11.1.2
-    container_name: 'clientinformationc_database'
-    ports:
-      - "3306:3306"
-    volumes:
-      - "./Volumes/Data:/var/lib/mysql"
-    environment:
-      MARIADB_USER: user
-      MARIADB_PASSWORD: pa55w0rd
-      MARIADB_ROOT_PASSWORD: R00tpa55w0rd
-      MARIADB_DATABASE: ClientInformationDatabase
-
-  clientinformationc_database_administration:
-    image: adminer:4.8.1
-    container_name: 'clientinformationc_database_administration'
-    ports:
-      - 8080:8080
     depends_on:
       - clientinformationc_database

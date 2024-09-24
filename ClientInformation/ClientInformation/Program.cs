@@ -78,31 +78,22 @@ namespace ClientInformation.Core
                     functionalInformation.WebApplicationBuilder.Services.AddSingleton<IMetricsService, MetricsService>();
                     functionalInformation.WebApplicationBuilder.Services.AddSingleton<IClientInformationService, ClientInformationService>();
                     functionalInformation.WebApplicationBuilder.Services.AddOpenTelemetry().WithMetrics(builder =>
-                      {
-                          builder.AddMeter(CodeUnitSpecificConstants.MetricAmountOfDataSetsName);
-                          builder.AddPrometheusExporter();
-                      });
+                    {
+                        builder.AddMeter(CodeUnitSpecificConstants.MetricAmountOfDataSetsName);
+                        builder.AddPrometheusExporter();
+                    });
                 };
                 apiServerConfiguration.ConfigureWebApplication = (functionalInformationForWebApplication) =>
                 {
-                    bool metricsServiceEnabled = true;
-                    bool currentPriceUpdateServiceEnabled = true;
-                    bool historicalPriceUpdateServiceEnabled = true;
                     functionalInformationForWebApplication.PreRun = () =>
                     {
                         _Logger.Log($"Start services...", LogLevel.Information);
-                        if (metricsServiceEnabled)
-                        {
-                            functionalInformationForWebApplication.WebApplication.Services.GetService<IMetricsService>().StartAsync();
-                        }
+                        functionalInformationForWebApplication.WebApplication.Services.GetService<IMetricsService>().StartAsync();
                     };
                     functionalInformationForWebApplication.PostRun = () =>
                     {
                         _Logger.Log($"Stop services...", LogLevel.Information);
-                        if (metricsServiceEnabled)
-                        {
-                            functionalInformationForWebApplication.WebApplication.Services.GetService<IMetricsService>().Stop().Wait();
-                        }
+                        functionalInformationForWebApplication.WebApplication.Services.GetService<IMetricsService>().Stop().Wait();
                     };
                     functionalInformationForWebApplication.WebApplication.MapHealthChecks(GRYLibrary.Core.APIServer.Utilities.Constants.UsualHealthCheckEndpoint);
                     functionalInformationForWebApplication.WebApplication.UseOpenTelemetryPrometheusScrapingEndpoint(GRYLibrary.Core.APIServer.Utilities.Constants.UsualMetricsEndpoint);
