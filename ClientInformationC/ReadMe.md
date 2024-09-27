@@ -1,6 +1,7 @@
 # ClientInformation
 
 `ClientInformation` is a service to retrieve information of the own HTTP-client, for example geo-information.
+For this purposes `ClientInformation` has an internal database and no dependencies to other services.
 
 ## Background
 
