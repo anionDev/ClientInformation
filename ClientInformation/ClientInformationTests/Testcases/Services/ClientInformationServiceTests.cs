@@ -17,6 +17,7 @@ namespace ClientInformation.Tests.Testcases.Services
             ClientInformationRecord expected = new ClientInformationRecord()
             {
                 IPAddress = ip,
+                Country = "US",
             };
             ClientInformationService clientInformationService = new ClientInformationService();
 

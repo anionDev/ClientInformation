@@ -22,7 +22,7 @@ namespace ClientInformation.Core.Controller
         [Route($"{nameof(this.Information)}/{{{nameof(ip)}}}")]
         public IActionResult Information([FromRoute] string ip)
         {
-            var result = this._ClientInformationService.GetClientInformation(ip);
+            Model.ClientInformationRecord result = this._ClientInformationService.GetClientInformation(ip);
             return this.Ok(result);
         }
 

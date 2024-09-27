@@ -1,9 +1,19 @@
 import sys
 import os
+import shutil
 from pathlib import Path
 from ScriptCollection.ScriptCollectionCore import ScriptCollectionCore
 from ScriptCollection.GeneralUtilities import GeneralUtilities
 from ScriptCollection.TasksForCommonProjectStructure import TasksForCommonProjectStructure
+
+
+def update_data_from_submodule(codeunit_folder: str) -> None:
+    codeunit_name: str = os.path.basename(codeunit_folder)
+    repository_folder = GeneralUtilities.resolve_relative_path("..", codeunit_folder)
+    datasubmodule_folder = GeneralUtilities.resolve_relative_path("Other/Resources/Submodules/ip-location-db", repository_folder)
+    geo_information_file = GeneralUtilities.resolve_relative_path("geolite2-geo-whois-asn-country/geolite2-geo-whois-asn-country-ipv4.csv", datasubmodule_folder)
+    target_folder = GeneralUtilities.resolve_relative_path(f"{codeunit_name}/Data/GeoIPData.csv", codeunit_folder)
+    shutil.copyfile(geo_information_file, target_folder)
 
 
 def common_tasks():
@@ -15,8 +25,7 @@ def common_tasks():
     file = str(Path(__file__).absolute())
     codeunit_folder = GeneralUtilities.resolve_relative_path("..", os.path.dirname(file))
     codeunit_name: str = os.path.basename(codeunit_folder)
-    codeunit_version = sc.get_semver_version_from_gitversion(GeneralUtilities.resolve_relative_path(
-        "../..", os.path.dirname(file)))  # Should always be the same as the project-version
+    codeunit_version = sc.get_semver_version_from_gitversion(GeneralUtilities.resolve_relative_path("../..", os.path.dirname(file)))  # Should always be the same as the project-version
     folder_of_current_file = os.path.dirname(file)
     t.generate_certificate_for_development_purposes_for_codeunit(codeunit_folder)
     sc.replace_version_in_csproj_file(GeneralUtilities.resolve_relative_path(f"../{codeunit_name}/{codeunit_name}.csproj", folder_of_current_file), codeunit_version)
@@ -29,6 +38,7 @@ def common_tasks():
     t.create_artifact_for_development_certificate(codeunit_folder)  # required so that the client-codeunit is able to access it in integration-testcases
     t.t4_transform(file, verbosity)
     t.update_year_for_dotnet_codeunit_in_common_scripts_file(file)
+    update_data_from_submodule(codeunit_folder)
 
 
 if __name__ == "__main__":
