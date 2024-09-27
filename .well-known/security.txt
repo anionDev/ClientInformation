@@ -4,4 +4,4 @@ Contact: mailto:marius.goecke@gmail.com
 Expires: 2035-01-01T00:00:00.000
 Encryption: https://raw.githubusercontent.com/anionDev/anionDev/main/PublicKeys/PGP-Key.txt
 Preferred-Languages: en, de
-Canonical: https://github.com/anionDev/ClientInformation/-/raw/main/.well-known/security.txt
+Canonical: https://raw.githubusercontent.com/anionDev/ClientInformation/refs/heads/main/.well-known/security.txt
