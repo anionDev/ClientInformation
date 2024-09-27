@@ -1,0 +1,13 @@
+version: '3.2'
+
+services:
+  clientinformationc:
+    image: clientinformationc:0.0.1
+    container_name: 'clientinformationc'
+    ports:
+      - "443:443"
+    volumes:
+      - "./Volumes/Configuration:/Workspace/Configuration"
+      - "./Volumes/Logs/Application:/Workspace/Logs"
+    depends_on:
+      - clientinformationc_database

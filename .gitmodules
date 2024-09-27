@@ -1,0 +1,3 @@
+[submodule "Submodules/ip-location-db"]
+	path = Other/Resources/Submodules/ip-location-db
+	url = https://github.com/sapics/ip-location-db.git
