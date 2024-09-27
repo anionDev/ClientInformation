@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<coverage version="1.0" date="2024-09-28_00-51-51" tag="v0.1.0">
+  <assembly name="ClientInformation">
+    <class name="ClientInformation.Core.Configuration.CodeUnitSpecificConfiguration" coveredlines="0" coverablelines="5" totallines="17" coveredbranches="0" totalbranches="0" coveredcodeelements="0" totalcodeelements="5" />
+    <class name="ClientInformation.Core.Controller.ClientInformationController" coveredlines="0" coverablelines="15" totallines="44" coveredbranches="0" totalbranches="0" coveredcodeelements="0" totalcodeelements="4" />
+    <class name="ClientInformation.Core.Miscellaneous.HealthCheck" coveredlines="0" coverablelines="15" totallines="30" coveredbranches="0" totalbranches="0" coveredcodeelements="0" totalcodeelements="2" />
+    <class name="ClientInformation.Core.Model.ClientInformationRecord" coveredlines="5" coverablelines="5" totallines="14" coveredbranches="0" totalbranches="0" coveredcodeelements="5" totalcodeelements="5" />
+    <class name="ClientInformation.Core.Program" coveredlines="0" coverablelines="74" totallines="115" coveredbranches="0" totalbranches="0" coveredcodeelements="0" totalcodeelements="2" />
+    <class name="ClientInformation.Core.Services.ClientInformationService" coveredlines="88" coverablelines="107" totallines="169" coveredbranches="16" totalbranches="26" coveredcodeelements="14" totalcodeelements="14" />
+    <class name="ClientInformation.Core.Services.MetricsService" coveredlines="0" coverablelines="21" totallines="41" coveredbranches="0" totalbranches="0" coveredcodeelements="0" totalcodeelements="5" />
+  </assembly>
+</coverage>
