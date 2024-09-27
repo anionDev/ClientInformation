@@ -10,3 +10,7 @@ This is not trivial.
 But there are some [existing databases](https://github.com/sapics/ip-location-db) for this with a utilisable license.
 And if the data itself are available for free then there also exist a simple, free and self-hostable server which uses this data and provide it through a Rest-API.
 For this purpose you can use `ClientInformation`.
+
+## Deployment
+
+The image can be pulled from [DockerHub](https://hub.docker.com/r/aniondev/clientinformationc).

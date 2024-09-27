@@ -2,7 +2,7 @@
 <cps:codeunit xmlns:cps="https://projects.aniondev.de/PublicProjects/Common/ProjectTemplates/-/tree/main/Conventions/RepositoryStructure/CommonProjectStructure" codeunitspecificationversion="2.8.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://projects.aniondev.de/PublicProjects/Common/ProjectTemplates/-/raw/v2.8.0/Conventions/RepositoryStructure/CommonProjectStructure/codeunit.xsd" enabled="true">
     <cps:name>ClientInformation</cps:name>
-    <cps:version>0.0.1</cps:version>
+    <cps:version>0.1.0</cps:version>
     <cps:properties codeunithastestablesourcecode="true" codeunithasupdatabledependencies="true" throwexceptionifcodeunitfilecannotbevalidated="true" developmentState="Maintenance-updates only" description="ClientInformation is a service to retrieve information of the own HTTP-client.">
         <cps:testsettings minimalcodecoverageinpercent="1"/>
         <cps:pipelinedemands>
