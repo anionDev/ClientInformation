@@ -5,12 +5,12 @@
 			"name": "Entire repository",
 		},
 		{
-			"path": "./ClientInformation",
-			"name": "ClientInformation",
+			"path": "./ClientInformationBackend",
+			"name": "ClientInformationBackend",
 		},
 		{
-			"path": "./ClientInformationC",
-			"name": "ClientInformationC",
+			"path": "./ClientInformation",
+			"name": "ClientInformation",
 		},
 	],
 	"tasks": {
