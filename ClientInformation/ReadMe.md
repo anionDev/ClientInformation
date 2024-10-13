@@ -13,4 +13,4 @@ For this purpose you can use `ClientInformation`.
 
 ## Deployment
 
-The image can be pulled from [DockerHub](https://hub.docker.com/r/aniondev/ClientInformation).
+The image can be pulled from [DockerHub](https://hub.docker.com/r/aniondev/clientinformationc).
