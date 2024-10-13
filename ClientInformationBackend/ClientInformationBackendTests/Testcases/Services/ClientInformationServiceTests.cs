@@ -18,6 +18,9 @@ namespace ClientInformationBackend.Tests.Testcases.Services
             {
                 IPAddress = ip,
                 Country = "US",
+                IsPingable=false,
+                Contact= "See /API/Other/Resources/Information/Contact for contact-information",
+                LicenseInformation= "See /API/Other/Resources/Information/License for license-information",
             };
             ClientInformationBackendService ClientInformationBackendService = new ClientInformationBackendService();
 

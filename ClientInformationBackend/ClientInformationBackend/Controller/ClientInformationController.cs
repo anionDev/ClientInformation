@@ -3,6 +3,8 @@ using GRYLibrary.Core.APIServer.Settings.Configuration;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ClientInformationBackend.Core.Constants;
+using System.Net;
+using GRYLibrary.Core.Exceptions;
 
 namespace ClientInformationBackend.Core.Controller
 {
@@ -31,14 +33,19 @@ namespace ClientInformationBackend.Core.Controller
         [Route($"{nameof(this.Information)}")]
         public IActionResult Information()
         {
-            return this.Information(this.GetIP());
+            return this.Information(this.GetClientIPAddress());
         }
-        private string GetIP()
+        private string GetClientIPAddress()
         {
-            string result = this.Request.HttpContext.Connection.RemoteIpAddress.ToString();
-            //On localhost for example this function returns "::ffff:127.0.0.1". 
-            //TODO extract real "plain"-ip-address
-            return result;
+           var value= (IPAddress?)this.HttpContext.Items["ClientIPAddress"];
+            if (value == null)
+            {
+                throw new BadRequestException($"Client IP-address not retrievable.");
+            }
+            else
+            {
+                return value!.ToString();
+            }
         }
     }
 }

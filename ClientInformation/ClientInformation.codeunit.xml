@@ -13,7 +13,7 @@
         </cps:updatesettings>
     </cps:properties>
     <cps:dependentcodeunits>
-        <cps:dependentcodeunit>ClientInformation</cps:dependentcodeunit>
+        <cps:dependentcodeunit>ClientInformationBackend</cps:dependentcodeunit>
     </cps:dependentcodeunits>
     <cps:developerteam>
         <cps:developer>

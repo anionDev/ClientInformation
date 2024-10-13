@@ -30,23 +30,18 @@ namespace ClientInformationBackend.Core.Services
                 IPAddress = ipAddress,
                 Country = this.GetCountry(ipAddress),
                 IsPingable = false,//TODO
-                Contact = null,//TODO
-                LicenseInformation = null,//TODO
+                Contact = "See /API/Other/Resources/Information/Contact for contact-information",
+                LicenseInformation = "See /API/Other/Resources/Information/License for license-information",
             };
         }
 
-        private string GetCountry(string ipAddressAsString)
+        private string? GetCountry(string ipAddressAsString)
         {
             try
             {
-                if (IPAddress.TryParse(ipAddressAsString, out IPAddress ipAddress))
+                if (IPAddress.TryParse(ipAddressAsString, out IPAddress? ipAddress))
                 {
-
-                    if (ipAddress.IsIPv4MappedToIPv6)
-                    {
-                        ipAddress = ipAddress.MapToIPv4();
-                    }
-                    return this.GetCountry(ipAddress);
+                    return this.GetCountry(ipAddress!);
                 }
             }
             catch
