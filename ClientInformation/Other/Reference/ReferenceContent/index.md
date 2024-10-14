@@ -4,6 +4,8 @@
 
 `ClientInformation` is a containerized service which basically runs [ClientInformationBackend](https://github.com/anionDev/ClientInformation/tree/main/ClientInformationBackend) in it.
 
+This codeunit is implemented as usual `Dockerfile`.
+
 ## Articles
 
 - [API-Usage](./Articles/APIUsage.md)
@@ -21,3 +23,7 @@ scbuildcodeunits
 cd ClientInformation/Other/Reference/ReferenceContent/Examples/MinimalDockerComposeFile
 python RunExample.py
 ```
+
+## Hints
+
+See also the [hints](./Hints.md) (mainly for developer).

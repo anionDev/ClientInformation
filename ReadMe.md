@@ -23,13 +23,14 @@ You can just run `docker run -p 443:443 aniondev/clientinformation` to try out t
 
 ## Build
 
-`ClientInformation` uses the [CommonProjectStructure](https://projects.aniondev.de/PublicProjects/Common/ProjectTemplates/-/blob/main/Conventions/RepositoryStructure/CommonProjectStructure/CommonProjectStructure.md) as repository-structure and requires to use `scbuildcodeunits` implemented/provided by [ScriptCollection](https://github.com/anionDev/ScriptCollection) to build the project.
-Please read also the "Get real ip-address of a client"-topic in the "Known issues"-section if you are running `ClientInformation` behind a reverse-proxy.
+This product requires to use `scbuildcodeunits` implemented/provided by [ScriptCollection](https://github.com/anionDev/ScriptCollection) to build the project.
 
 `ClientInformation` has 2 codeunits:
 
 - [ClientInformation](./ClientInformation/Other/Reference/ReferenceContent/index.md)
 - [ClientInformationBackend](./ClientInformationBackend/Other/Reference/ReferenceContent/index.md)
+
+Please read also the "Get real ip-address of a client"-topic in the "Known issues"-section if you are running `ClientInformation` behind a reverse-proxy.
 
 ## Deployment
 
@@ -52,7 +53,7 @@ When you deploy `ClientInformation` there are 2 possible cases:
 For the first case you do not have to do anything, the service should work out of the box.
 
 For the second case you have to change the value of `TrustForwardedHeader` in the `ServerConfiguration`-section from `false` to `true`.
-Otherwise the server will assume the ip-address of the reverse-proxy as client-ip and ignore the [`X-Forwarded-For`-header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-For).
+Otherwise the server will assume the ip-address of the reverse-proxy as client-ip and ignore the [`X-Forwarded-For`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-For)-header.
 Furthermore you must configure your reverse-proxy to set the `X-Forwarded-For`-header with the real client-ip-address as value so that `ClientInformation` is finally able to retrieve the client-ip-address.
 For [nginx](https://nginx.org/en/docs/http/ngx_http_realip_module.html) as reverse-proxy for example you must add `proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;` to the nginx-configuration.
 
@@ -62,13 +63,23 @@ The reason why the default-value of `TrustForwardedHeader` can not be `true` is 
 
 Contributions are always welcome.
 
-When you plan to contribute something then please follow the following process:
+This product has the contribution-requirements defines by [DefaultOpenSourceContributionProcess](https://projects.aniondev.de/PublicProjects/Common/ProjectTemplates/-/blob/main/Conventions/Contributing/DefaultOpenSourceContributionProcess/DefaultOpenSourceContributionProcess.md).
 
-1. Create an issue to ask if the requested change is already planned or declined.
-2. If both answers are "no" then feel free to create a branch from the latest `main`-branch and implement the desired change on it.
-3. When the implementation is finished and the product is buildable again then create a pull-request back to the main-branch.
+## Repository-structure
 
-By creating a pull-request you accept and confirm that your changes will be released under the license which is stated in [License.txt](./License.txt) in the moment when you create the pull-request.
+This product uses the [CommonProjectStructure](https://projects.aniondev.de/PublicProjects/Common/ProjectTemplates/-/blob/main/Conventions/RepositoryStructure/CommonProjectStructure/CommonProjectStructure.md) as repository-structure.
+
+## Branching-system
+
+This product follows the [GitFlowSimplified](https://projects.aniondev.de/PublicProjects/Common/ProjectTemplates/-/blob/main/Conventions/BranchingSystem/GitFlowSimplified/GitFlowSimplified.md)-branching-system.
+
+## Image-properties
+
+The image-artifacts of this product must fulfill the image-properties defined by [DefaultImageUsabilityRequirements](https://projects.aniondev.de/PublicProjects/Common/ProjectTemplates/-/blob/main/Conventions/ImageProperties/DefaultImageUsabilityRequirements/DefaultImageUsabilityRequirements.md).
+
+## Versioning
+
+This product follows the [SemVerPractise](https://projects.aniondev.de/PublicProjects/Common/ProjectTemplates/-/blob/main/Conventions/Versioning/SemVerPractise/SemVerPractise.md)-versioning-system.
 
 ## License
 
