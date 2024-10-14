@@ -8,7 +8,8 @@ def update_iplocation_submodule(repository_folder):
     submodule_folder = GeneralUtilities.resolve_relative_path("Other/Resources/Submodules/ip-location-db", repository_folder)
     sc: ScriptCollectionCore = ScriptCollectionCore()
     sc.git_fetch(submodule_folder, "origin")
-    sc.git_checkout(submodule_folder, "origin/main")
+    sc.git_checkout(submodule_folder, "main")
+    sc.git_pull(submodule_folder, "origin", "main", "main")
 
 
 def prepare_build_codeunits():
