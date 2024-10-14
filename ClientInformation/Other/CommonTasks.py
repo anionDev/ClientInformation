@@ -9,6 +9,7 @@ from ScriptCollection.TasksForCommonProjectStructure import TasksForCommonProjec
 def common_tasks():
     cmd_args = sys.argv
     t = TasksForCommonProjectStructure()
+    t.validate_developers_of_repository=False
     sc = ScriptCollectionCore()
     build_environment = t.get_targetenvironmenttype_from_commandline_arguments(cmd_args, "QualityCheck")
     verbosity = t.get_verbosity_from_commandline_arguments(cmd_args, 1)

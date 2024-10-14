@@ -2,7 +2,7 @@ version: '3.2'
 
 services:
   clientinformation:
-    image: clientinformation:0.1.3
+    image: clientinformation:1.0.0
     container_name: 'clientinformation'
     ports:
       - "443:443"
