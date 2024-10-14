@@ -10,11 +10,16 @@ This is not trivial.
 But there are some [existing databases](https://github.com/sapics/ip-location-db) for this with a utilisable license.
 And if the data itself are available for free then there also exist a simple, free and self-hostable server which uses this data and provide it through a Rest-API.
 For this purpose you can use `ClientInformation`.
-With this service you can host this service on your own.
+With `ClientInformation` you can host this service on your own.
+
+## Try out
+
 To see an example of the result-data see [clientinformation.anion327.de](https://clientinformation.anion327.de/API/v1/ClientInformationBackendController/Information).
 Due to server-capacity-reasons it is not recommended to use this link for a productive environment.
 You are supposed to host this service on your own.
 An example how to run this service in a container is explained in the [reference](ClientInformation/Other/Reference/ReferenceContent/index.md).
+
+You can just run `docker run -p 443:443 aniondev/clientinformation` to try out the service locally and then run `curl -k -s https://127.0.0.1:443/API/v1/ClientInformationBackendController/Information/8.8.8.8` to retrieve an example-response.
 
 ## Build
 
@@ -28,9 +33,12 @@ Please read also the "Get real ip-address of a client"-topic in the "Known issue
 
 ## Deployment
 
+`ClientInformation` does not have any dependencies to external services.
+The geo-data-database is stored internally.
+
 The usual deployment-method is by running `ClientInformation` in a container.
 To do so the official `ClientInformation`-image can be pulled from [DockerHub](https://hub.docker.com/r/aniondev/clientinformation).
-The configuration-file will be generated/created on the first run. 
+The configuration-file will be generated/created on the first run.
 
 ## Known issues
 
