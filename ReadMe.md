@@ -8,7 +8,7 @@ For this purposes `ClientInformation` has an internal database and no dependenci
 There are some usecases where you want to know which country a specific IP-address belongs to for example.
 This is not trivial.
 But there are some [existing databases](https://github.com/sapics/ip-location-db) for this with a utilisable license.
-And if the data itself are available for free then there also exist a simple, free and self-hostable server which uses this data and provide it through a Rest-API.
+And if the data itself are available for free then there should also exist a simple, free and self-hostable server which uses this data and provide it through a Rest-API.
 For this purpose you can use `ClientInformation`.
 With `ClientInformation` you can host this service on your own.
 
@@ -58,6 +58,11 @@ Furthermore you must configure your reverse-proxy to set the `X-Forwarded-For`-h
 For [nginx](https://nginx.org/en/docs/http/ngx_http_realip_module.html) as reverse-proxy for example you must add `proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;` to the nginx-configuration.
 
 The reason why the default-value of `TrustForwardedHeader` can not be `true` is that when you run `ClientInformation` without a reverseproxy, a client can simply set the `X-Forwarded-For`-header to an arbitrary value and then `ClientInformation` can not trust this header-value anymore. If a client would be able to pretend a wrong client-ip-address then also the client-ip-addresses in the access-log would be wrong.
+
+### IPv6
+
+IPv6 is currently not supported.
+Only IPv4-addresses are supported by `ClientInformation`.
 
 ## Contribue
 

@@ -29,7 +29,6 @@ namespace ClientInformationBackend.Core.Services
             {
                 IPAddress = ipAddress,
                 Country = this.GetCountry(ipAddress),
-                IsPingable = false,//TODO
                 Contact = "See /API/Other/Resources/Information/Contact for contact-information",
                 LicenseInformation = "See /API/Other/Resources/Information/License for license-information",
             };
