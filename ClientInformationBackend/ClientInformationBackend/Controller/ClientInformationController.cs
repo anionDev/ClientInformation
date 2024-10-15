@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using ClientInformationBackend.Core.Constants;
 using System.Net;
 using GRYLibrary.Core.Exceptions;
+using System.Text.Json;
 
 namespace ClientInformationBackend.Core.Controller
 {
@@ -21,23 +22,27 @@ namespace ClientInformationBackend.Core.Controller
 
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(decimal))]
-        [Route($"{nameof(this.Information)}/{{{nameof(ip)}}}")]
-        public IActionResult Information([FromRoute] string ip)
-        {
-            Model.ClientInformationBackendRecord result = this._ClientInformationBackendService.GetClientInformationBackend(ip);
-            return this.Ok(result);
-        }
-
-        [HttpGet]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(decimal))]
         [Route($"{nameof(this.Information)}")]
         public IActionResult Information()
         {
             return this.Information(this.GetClientIPAddress());
         }
+
+        [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(decimal))]
+        [Route($"{nameof(this.Information)}/{{{nameof(ip)}}}")]
+        public IActionResult Information([FromRoute] string ip)
+        {
+            Model.ClientInformationBackendRecord result = this._ClientInformationBackendService.GetClientInformationBackend(ip);
+            return this.Ok(JsonSerializer.Serialize(result, new JsonSerializerOptions
+            {
+                WriteIndented = true
+            }));
+        }
+
         private string GetClientIPAddress()
         {
-           var value= (IPAddress?)this.HttpContext.Items["ClientIPAddress"];
+            IPAddress? value = (IPAddress?)this.HttpContext.Items["ClientIPAddress"];
             if (value == null)
             {
                 throw new BadRequestException($"Client IP-address not retrievable.");

@@ -1,0 +1,166 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "ClientInformationBackend v1.0.0 API documentation",
+    "description": "ClientInformationBackend is a service to retrieve information of the own HTTP-client.",
+    "termsOfService": "http://clientinformationbackend.test.local:80/API/Other/Resources/Information/TermsOfService",
+    "contact": {
+      "name": "Contact",
+      "url": "http://clientinformationbackend.test.local:80/API/Other/Resources/Information/Contact"
+    },
+    "license": {
+      "name": "License",
+      "url": "http://clientinformationbackend.test.local:80/API/Other/Resources/Information/License"
+    },
+    "version": "v1.0.0"
+  },
+  "paths": {
+    "/API/v1/ClientInformationBackendController/Information": {
+      "get": {
+        "tags": [
+          "ClientInformationBackend"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "number",
+                  "format": "double"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "number",
+                  "format": "double"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "number",
+                  "format": "double"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/v1/ClientInformationBackendController/Information/{ip}": {
+      "get": {
+        "tags": [
+          "ClientInformationBackend"
+        ],
+        "parameters": [
+          {
+            "name": "ip",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "number",
+                  "format": "double"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "number",
+                  "format": "double"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "number",
+                  "format": "double"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/Other/Resources/Information/TermsOfService": {
+      "get": {
+        "tags": [
+          "CommonRoutes"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/API/Other/Resources/Information/Contact": {
+      "get": {
+        "tags": [
+          "CommonRoutes"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/API/Other/Resources/Information/License": {
+      "get": {
+        "tags": [
+          "CommonRoutes"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/API/Other/Maintenance/AvailabilityCheck": {
+      "get": {
+        "tags": [
+          "MaintenanceRoutes"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/API/Other/Maintenance/CurrentVersion": {
+      "get": {
+        "tags": [
+          "MaintenanceRoutes"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/API/Other/Maintenance/ShowAllEndpoints": {
+      "get": {
+        "tags": [
+          "MaintenanceRoutes"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": { }
+}

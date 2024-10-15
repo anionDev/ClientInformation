@@ -9,11 +9,12 @@ from ScriptCollection.TasksForCommonProjectStructure import TasksForCommonProjec
 def common_tasks():
     cmd_args = sys.argv
     t = TasksForCommonProjectStructure()
+    t.validate_developers_of_repository=False
     sc = ScriptCollectionCore()
     build_environment = t.get_targetenvironmenttype_from_commandline_arguments(cmd_args, "QualityCheck")
     verbosity = t.get_verbosity_from_commandline_arguments(cmd_args, 1)
     file = str(Path(__file__).absolute())
-    codeunit_folder=GeneralUtilities.resolve_relative_path("..", os.path.dirname(file))
+    codeunit_folder = GeneralUtilities.resolve_relative_path("..", os.path.dirname(file))
     codeunitname = os.path.basename(codeunit_folder)
     codeunit_version = sc.get_semver_version_from_gitversion(GeneralUtilities.resolve_relative_path(
         "../..", os.path.dirname(file)))  # Should always be the same as the project-version
@@ -22,8 +23,6 @@ def common_tasks():
     sc.replace_version_in_dockerfile_file(GeneralUtilities.resolve_relative_path(f"../{codeunitname}/Dockerfile", folder_of_current_file), codeunit_version)
     t.standardized_tasks_do_common_tasks(file, codeunit_version, verbosity, build_environment, True, additional_arguments_file, False, cmd_args)
     t.standardized_tasks_update_version_in_docker_examples(file, codeunit_version)
-    t.take_readmefile_from_main_readmefile_of_repository(file)
-
 
 
 if __name__ == "__main__":

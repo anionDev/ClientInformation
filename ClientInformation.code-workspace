@@ -29,12 +29,12 @@
 				},
 			},
 			{
-				"label": "ClientInformationC: Run example",
+				"label": "ClientInformation: Run example",
 				"command": "python RunExample.py",
 				"args": [],
 				"type": "shell",
 				"options": {
-					"cwd": "${workspaceFolder}/ClientInformationC/Other/Reference/ReferenceContent/Examples/MinimalDockerComposeFile",
+					"cwd": "${workspaceFolder}/ClientInformation/Other/Reference/ReferenceContent/Examples/MinimalDockerComposeFile",
 				},
 			}
 		]
@@ -44,17 +44,10 @@
 		"configurations": [
 			{
 				"name": "Debug current python-file",
-				"type": "python",
+				"type": "debugpy",
 				"request": "launch",
 				"program": "${file}",
 				"console": "integratedTerminal"
-			},
-			{
-				"name": "Debug current bash-script",
-				"type": "bashdb",
-				"request": "launch",
-				"program": "${file}",
-				"cwd": "${workspaceFolder}"
 			}
 		]
 	},

@@ -9,6 +9,5 @@
         public string? Country { get; set; }
         public string Contact { get; set; }
         public string LicenseInformation { get; set; }
-        public bool IsPingable { get; set; }
     }
 }
