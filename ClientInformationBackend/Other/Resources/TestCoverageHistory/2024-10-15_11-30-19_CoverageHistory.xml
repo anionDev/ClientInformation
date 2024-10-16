@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<coverage version="1.0" date="2024-10-15_11-30-19" tag="v1.0.0">
+  <assembly name="ClientInformationBackend">
+    <class name="ClientInformationBackend.Core.Configuration.CodeUnitSpecificConfiguration" coveredlines="0" coverablelines="5" totallines="17" coveredbranches="0" totalbranches="0" coveredcodeelements="0" totalcodeelements="5" />
+    <class name="ClientInformationBackend.Core.Controller.ClientInformationBackendController" coveredlines="0" coverablelines="22" totallines="56" coveredbranches="0" totalbranches="2" coveredcodeelements="0" totalcodeelements="4" />
+    <class name="ClientInformationBackend.Core.Miscellaneous.HealthCheck" coveredlines="0" coverablelines="15" totallines="30" coveredbranches="0" totalbranches="0" coveredcodeelements="0" totalcodeelements="2" />
+    <class name="ClientInformationBackend.Core.Model.ClientInformationBackendRecord" coveredlines="4" coverablelines="4" totallines="13" coveredbranches="0" totalbranches="0" coveredcodeelements="4" totalcodeelements="4" />
+    <class name="ClientInformationBackend.Core.Program" coveredlines="0" coverablelines="74" totallines="115" coveredbranches="0" totalbranches="0" coveredcodeelements="0" totalcodeelements="2" />
+    <class name="ClientInformationBackend.Core.Services.ClientInformationBackendService" coveredlines="86" coverablelines="102" totallines="163" coveredbranches="15" totalbranches="24" coveredcodeelements="14" totalcodeelements="14" />
+    <class name="ClientInformationBackend.Core.Services.MetricsService" coveredlines="0" coverablelines="21" totallines="41" coveredbranches="0" totalbranches="0" coveredcodeelements="0" totalcodeelements="5" />
+  </assembly>
+</coverage>
