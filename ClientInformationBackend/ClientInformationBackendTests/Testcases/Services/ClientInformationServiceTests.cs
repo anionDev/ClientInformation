@@ -1,7 +1,10 @@
-﻿using ClientInformationBackend.Core.Model;
+﻿using ClientInformationBackend.Core.Configuration;
+using ClientInformationBackend.Core.Model;
 using ClientInformationBackend.Core.Services;
+using GRYLibrary.Core.APIServer.Settings.Configuration;
 using GRYLibrary.Core.Misc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
 
 namespace ClientInformationBackend.Tests.Testcases.Services
 {
@@ -14,14 +17,22 @@ namespace ClientInformationBackend.Tests.Testcases.Services
         {
             // arrange
             string ip = "8.8.8.8";
-            ClientInformationBackendRecord expected = new ClientInformationBackendRecord()
+            string contactInformation = "some contact-information";
+            string licenseInformation = "some license-information";
+            CodeUnitSpecificConfiguration codeUnitSpecificConfiguration = new CodeUnitSpecificConfiguration()
             {
-                IPAddress = ip,
-                Country = "US",
-                Contact = "See /API/Other/Resources/Information/Contact for contact-information",
-                LicenseInformation = "See /API/Other/Resources/Information/License for license-information",
+                ContactInformation = contactInformation,
+                LicenseInformation = licenseInformation,
             };
-            ClientInformationBackendService ClientInformationBackendService = new ClientInformationBackendService();
+            Mock<IPersistedAPIServerConfiguration<CodeUnitSpecificConfiguration>> persistedAPIServerConfigurationMock = new Mock<IPersistedAPIServerConfiguration<CodeUnitSpecificConfiguration>>(MockBehavior.Strict);
+            persistedAPIServerConfigurationMock.SetupGet(mock => mock.ApplicationSpecificConfiguration).Returns(codeUnitSpecificConfiguration);
+            ClientInformationBackendRecord expected = new ClientInformationBackendRecord(ip)
+            {
+                Country = "US",
+                Contact = contactInformation,
+                LicenseInformation = licenseInformation,
+            };
+            ClientInformationBackendService ClientInformationBackendService = new ClientInformationBackendService(persistedAPIServerConfigurationMock.Object);
 
             // act
             ClientInformationBackendRecord actual = ClientInformationBackendService.GetClientInformationBackend(ip);
