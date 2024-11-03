@@ -1,15 +1,27 @@
+import os
 from pathlib import Path
 from ScriptCollection.GeneralUtilities import GeneralUtilities
 from ScriptCollection.ScriptCollectionCore import ScriptCollectionCore
 from ScriptCollection.TasksForCommonProjectStructure import TasksForCommonProjectStructure
 
 
-def update_iplocation_submodule(repository_folder):
-    submodule_folder = GeneralUtilities.resolve_relative_path("Other/Resources/Submodules/ip-location-db", repository_folder)
+@GeneralUtilities.check_arguments
+def update_iplocation_submodule(repository_folder: str):
     sc: ScriptCollectionCore = ScriptCollectionCore()
+    submodule_folder = GeneralUtilities.resolve_relative_path("Other/Resources/Submodules/ip-location-db", repository_folder)
     sc.git_fetch(submodule_folder, "origin")
     sc.git_checkout(submodule_folder, "main")
-    sc.git_pull(submodule_folder, "origin", "main", "main")
+    sc.git_pull(submodule_folder, "origin", "main", "main", True)
+    current_version = sc.get_semver_version_from_gitversion(repository_folder)
+    changelog_file = os.path.join(repository_folder, "Other", "Resources", "Changelog", f"v{current_version}.md")
+    if (not os.path.isfile(changelog_file)):
+        GeneralUtilities.ensure_file_exists(changelog_file)
+        GeneralUtilities.write_text_to_file(changelog_file, """# Release notes
+
+## Changes
+
+- Updated geo-ip-database.
+""")
 
 
 def prepare_build_codeunits():
