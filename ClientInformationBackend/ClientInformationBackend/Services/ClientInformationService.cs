@@ -1,4 +1,6 @@
-﻿using ClientInformationBackend.Core.Model;
+﻿using ClientInformationBackend.Core.Configuration;
+using ClientInformationBackend.Core.Model;
+using GRYLibrary.Core.APIServer.Settings.Configuration;
 using GRYLibrary.Core.Exceptions;
 using NetTools;
 using System.Collections.Generic;
@@ -13,9 +15,11 @@ namespace ClientInformationBackend.Core.Services
     public class ClientInformationBackendService : IClientInformationBackendService
     {
         private readonly IDictionary<byte, IList<(IPAddressRange, string)>> _Cache = new Dictionary<byte, IList<(IPAddressRange, string)>>();
+        private readonly IPersistedAPIServerConfiguration<CodeUnitSpecificConfiguration> _Configuration;
 
-        public ClientInformationBackendService()
+        public ClientInformationBackendService(IPersistedAPIServerConfiguration<CodeUnitSpecificConfiguration> configuration)
         {
+            _Configuration = configuration;
             this.Initialize();
         }
 
@@ -25,12 +29,11 @@ namespace ClientInformationBackend.Core.Services
             {
                 throw new BadRequestException($"Invalid IP-Address: \"{ipAddress}\"");
             }
-            return new ClientInformationBackendRecord()
+            return new ClientInformationBackendRecord(ipAddress)
             {
-                IPAddress = ipAddress,
                 Country = this.GetCountry(ipAddress),
-                Contact = "See /API/Other/Resources/Information/Contact for contact-information",
-                LicenseInformation = "See /API/Other/Resources/Information/License for license-information",
+                Contact = this._Configuration.ApplicationSpecificConfiguration.ContactInformation,
+                LicenseInformation = this._Configuration.ApplicationSpecificConfiguration.LicenseInformation,
             };
         }
 
@@ -60,7 +63,7 @@ namespace ClientInformationBackend.Core.Services
             GUtilities.AssertCondition(0 < index);
             while (index > 0)
             {
-                var cacheValue = this._Cache[index];
+                IList<(IPAddressRange, string)> cacheValue = this._Cache[index];
                 if (LowerOrEqual(cacheValue.First().Item1.Begin, ipAddress) && LowerOrEqual(ipAddress, cacheValue.Last().Item1.End))
                 {
                     //correct cachevalue found
@@ -74,7 +77,7 @@ namespace ClientInformationBackend.Core.Services
 
         private string SearchInRange(IList<(IPAddressRange, string)> ranges, IPAddress ipAddress)
         {
-            foreach (var range in ranges)
+            foreach ((IPAddressRange, string) range in ranges)
             {
                 if (range.Item1.Contains(ipAddress))
                 {
@@ -123,11 +126,11 @@ namespace ClientInformationBackend.Core.Services
 163.205.0.0,163.207.255.255,US
             now this data must be added to a cache in a format where the country can be looked up quickly for a specific ip
              */
-            foreach (var plainTriple in dataResourceLines)
+            foreach (string plainTriple in dataResourceLines)
             {
-                var triple = plainTriple.Split(",");
-                var firstOctet1 = byte.Parse(triple[0].Split(".")[0]);
-                var range = IPAddressRange.Parse($"{triple[0]} - {triple[1]}");
+                string[] triple = plainTriple.Split(",");
+                byte firstOctet1 = byte.Parse(triple[0].Split(".")[0]);
+                IPAddressRange range = IPAddressRange.Parse($"{triple[0]} - {triple[1]}");
                 this._Cache[firstOctet1].Add((range, triple[2]));
             }
         }
