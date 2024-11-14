@@ -13,5 +13,7 @@ namespace ClientInformationBackend.Core.Configuration
         public IDRequestLoggingConfiguration RequestLoggingConfiguration { get; set; }
         public IRequestLoggingConfiguration ConfigurationForLoggingMiddleware { get { return this.RequestLoggingConfiguration; } }
         public IExceptionManagerConfiguration ConfigurationForExceptionManagerMiddleware { get; set; }
+        public string? LicenseInformation { get; set; }
+        public string? ContactInformation { get; set; }
     }
 }

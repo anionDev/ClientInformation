@@ -14,6 +14,10 @@ namespace ClientInformationBackend.Core.Controller
     public class ClientInformationBackendController : ControllerBase
     {
         private readonly IClientInformationBackendService _ClientInformationBackendService;
+        private readonly JsonSerializerOptions _JSONSettings = new JsonSerializerOptions
+        {
+            WriteIndented = true
+        };
         public const string ControllerRoute = $"{ServerConfiguration.APIRoutePrefix}/v{GeneralConstants.CodeUnitMajorVersion}/{nameof(ClientInformationBackendController)}";
         public ClientInformationBackendController(IClientInformationBackendService ClientInformationBackendService)
         {
@@ -34,10 +38,7 @@ namespace ClientInformationBackend.Core.Controller
         public IActionResult Information([FromRoute] string ip)
         {
             Model.ClientInformationBackendRecord result = this._ClientInformationBackendService.GetClientInformationBackend(ip);
-            return this.Ok(JsonSerializer.Serialize(result, new JsonSerializerOptions
-            {
-                WriteIndented = true
-            }));
+            return this.Ok(JsonSerializer.Serialize(result, this._JSONSettings));
         }
 
         private string GetClientIPAddress()
