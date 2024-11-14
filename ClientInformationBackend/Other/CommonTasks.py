@@ -1,6 +1,5 @@
 import sys
 import os
-import shutil
 from pathlib import Path
 from ScriptCollection.ScriptCollectionCore import ScriptCollectionCore
 from ScriptCollection.GeneralUtilities import GeneralUtilities
@@ -10,7 +9,7 @@ from ScriptCollection.TasksForCommonProjectStructure import TasksForCommonProjec
 def common_tasks():
     cmd_args = sys.argv
     t = TasksForCommonProjectStructure()
-    t.validate_developers_of_repository=False
+    t.validate_developers_of_repository = False
     sc = ScriptCollectionCore()
     build_environment = t.get_targetenvironmenttype_from_commandline_arguments(cmd_args, "QualityCheck")
     verbosity = t.get_verbosity_from_commandline_arguments(cmd_args, 1)
@@ -30,7 +29,6 @@ def common_tasks():
     t.create_artifact_for_development_certificate(codeunit_folder)  # required so that the client-codeunit is able to access it in integration-testcases
     t.t4_transform(file, verbosity)
     t.update_year_for_dotnet_codeunit_in_common_scripts_file(file)
-    update_data_from_submodule(codeunit_folder)
 
 
 if __name__ == "__main__":

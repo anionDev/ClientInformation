@@ -1,5 +1,8 @@
 import sys
+import os
+import shutil
 from pathlib import Path
+from ScriptCollection.GeneralUtilities import GeneralUtilities
 from ScriptCollection.TasksForCommonProjectStructure import TasksForCommonProjectStructure
 
 
@@ -12,6 +15,7 @@ def update_data_from_submodule(codeunit_folder: str) -> None:
     target_folder = GeneralUtilities.resolve_relative_path(f"{codeunit_name}/Data/GeoIPData.csv", codeunit_folder)
     shutil.copyfile(geo_information_file, target_folder)
     update_data_from_submodule(repository_folder)
+
 
 def update_dependencies():
     current_file = str(Path(__file__).absolute())
