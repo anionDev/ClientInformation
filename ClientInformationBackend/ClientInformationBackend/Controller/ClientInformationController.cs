@@ -14,7 +14,7 @@ namespace ClientInformationBackend.Core.Controller
     public class ClientInformationBackendController : ControllerBase
     {
         private readonly IClientInformationBackendService _ClientInformationBackendService;
-        private readonly JsonSerializerOptions _JSONSettings = new JsonSerializerOptions
+        internal static readonly JsonSerializerOptions _JSONSettings = new JsonSerializerOptions
         {
             WriteIndented = true
         };
@@ -29,7 +29,7 @@ namespace ClientInformationBackend.Core.Controller
         [Route($"{nameof(this.Information)}")]
         public IActionResult Information()
         {
-            return this.Information(this.GetClientIPAddress());
+            return this.Information(GetClientIPAddress(HttpContext));
         }
 
         [HttpGet]
@@ -37,13 +37,17 @@ namespace ClientInformationBackend.Core.Controller
         [Route($"{nameof(this.Information)}/{{{nameof(ip)}}}")]
         public IActionResult Information([FromRoute] string ip)
         {
-            Model.ClientInformationBackendRecord result = this._ClientInformationBackendService.GetClientInformationBackend(ip);
-            return this.Ok(JsonSerializer.Serialize(result, this._JSONSettings));
+            return this.Ok(CalculateResponseForClientInformationRequest(ip, _ClientInformationBackendService));
+        }
+        internal static string CalculateResponseForClientInformationRequest(string ip, IClientInformationBackendService clientInformationBackendService)
+        {
+            Model.ClientInformationBackendRecord result = clientInformationBackendService.GetClientInformationBackend(ip);
+            return JsonSerializer.Serialize(result, _JSONSettings);
         }
 
-        private string GetClientIPAddress()
+        internal static string GetClientIPAddress(HttpContext httpContext)
         {
-            IPAddress? value = (IPAddress?)this.HttpContext.Items["ClientIPAddress"];
+            IPAddress? value = (IPAddress?)httpContext.Items["ClientIPAddress"];
             if (value == null)
             {
                 throw new BadRequestException($"Client IP-address not retrievable.");
