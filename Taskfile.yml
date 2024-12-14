@@ -1,0 +1,30 @@
+version: '3'
+
+tasks:
+
+  BaseBuildAllCodeunits:
+    desc: "Base: Build all codeunits"
+    dir: "."
+    cmds:
+      - scbuildcodeunits {{.CLI_ARGS}}
+    aliases:
+      - basebuildallcodeunits
+      - bb
+
+  BaseExampleStart:
+    desc: "Base: Example start"
+    dir: "./ClientInformation/Other/Reference/ReferenceContent/Examples/MinimalDockerComposeFile"
+    cmds:
+      - python StartExample.py {{.CLI_ARGS}}
+    aliases:
+      - baseexamplestart
+      - beu
+
+  BaseExampleStop:
+    desc: "Base: Example stop"
+    dir: "./ClientInformation/Other/Reference/ReferenceContent/Examples/MinimalDockerComposeFile"
+    cmds:
+      - python StopExample.py {{.CLI_ARGS}}
+    aliases:
+      - baseexamplestop
+      - bed
