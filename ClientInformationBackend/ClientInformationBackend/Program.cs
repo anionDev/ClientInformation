@@ -15,7 +15,7 @@ using Microsoft.AspNetCore.Builder;
 using GRYLibrary.Core.APIServer.Mid.PreDAPIK;
 using ClientInformationBackend.Core.Miscellaneous;
 using GRYLibrary.Core.APIServer.Services.Interfaces;
-using GRYLibrary.Core.APIServer.Services.TS;
+using GRYLibrary.Core.APIServer.Services.OtherServices;
 using GRYLibrary.Core.APIServer.MaintenanceRoutes;
 using ClientInformationBackend.Core.Services;
 using GRYLibrary.Core.APIServer.Mid.M05DLog;
