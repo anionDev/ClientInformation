@@ -2,40 +2,54 @@
 	"folders": [
 		{
 			"path": ".",
-			"name": "Entire repository",
-		},
-		{
-			"path": "./ClientInformationBackend",
-			"name": "ClientInformationBackend",
+			"name": "Entire repository"
 		},
 		{
 			"path": "./ClientInformation",
-			"name": "ClientInformation",
+			"name": "ClientInformation"
 		},
+		{
+			"path": "./ClientInformationBackend",
+			"name": "ClientInformationBackend"
+		}
 	],
 	"tasks": {
 		"version": "2.0.0",
 		"tasks": [
 			{
-				"label": "Build all codeunits",
-				"command": "SCBuildCodeunits",
-				"args": [
-					"--buildenvironment",
-					"Development"
-				],
+				"label": "Base: Build all codeunits",
+				"command": "scbuildcodeunits",
 				"type": "shell",
 				"options": {
-					"cwd": "${workspaceFolder}",
+					"cwd": "${workspaceFolder}"
 				},
+				"aliases": [
+					"bb"
+				]
 			},
 			{
-				"label": "ClientInformation: Run example",
-				"command": "python RunExample.py",
+				"label": "Base: Example start",
+				"command": "python StartExample.py",
 				"args": [],
 				"type": "shell",
 				"options": {
-					"cwd": "${workspaceFolder}/ClientInformation/Other/Reference/ReferenceContent/Examples/MinimalDockerComposeFile",
+					"cwd": "${workspaceFolder}/ClientInformation/Other/Reference/ReferenceContent/Examples/MinimalDockerComposeFile"
 				},
+				"aliases": [
+					"beu"
+				]
+			},
+			{
+				"label": "Base: Example stop",
+				"command": "python StopExample.py",
+				"args": [],
+				"type": "shell",
+				"options": {
+					"cwd": "${workspaceFolder}/ClientInformation/Other/Reference/ReferenceContent/Examples/MinimalDockerComposeFile"
+				},
+				"aliases": [
+					"bed"
+				]
 			}
 		]
 	},
@@ -43,7 +57,7 @@
 		"version": "0.2.0",
 		"configurations": [
 			{
-				"name": "Debug current python-file",
+				"name": "Debug current file",
 				"type": "debugpy",
 				"request": "launch",
 				"program": "${file}",
@@ -52,13 +66,13 @@
 		]
 	},
 	"settings": {
-		"window.title": "${dirty} ${rootName}", // see https://code.visualstudio.com/updates/v1_10#_configurable-window-title
+		"window.title": "${dirty} ${rootName}",
 		"spellright.documentTypes": [
 			"markdown",
-			"plaintext",
+			"plaintext"
 		],
 		"spellright.language": [
-			"en",
-		],
+			"en"
+		]
 	}
 }

@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "ClientInformationBackend v1.0.1 API documentation",
+    "title": "ClientInformationBackend v1.0.2 API documentation",
     "description": "ClientInformationBackend is a service to retrieve information of the own HTTP-client.",
     "termsOfService": "http://clientinformationbackend.test.local:80/API/Other/Resources/Information/TermsOfService",
     "contact": {
@@ -12,7 +12,7 @@
       "name": "License",
       "url": "http://clientinformationbackend.test.local:80/API/Other/Resources/Information/License"
     },
-    "version": "v1.0.1"
+    "version": "v1.0.2"
   },
   "paths": {
     "/API/v1/ClientInformationBackendController/Information": {
@@ -125,6 +125,38 @@
         }
       }
     },
+    "/": {
+      "get": {
+        "tags": [
+          "HomePage"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "number",
+                  "format": "double"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "number",
+                  "format": "double"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "number",
+                  "format": "double"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/API/Other/Maintenance/AvailabilityCheck": {
       "get": {
         "tags": [
@@ -150,6 +182,30 @@
       }
     },
     "/API/Other/Maintenance/ShowAllEndpoints": {
+      "get": {
+        "tags": [
+          "MaintenanceRoutes"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/API/Other/Maintenance/HealthCheck": {
+      "get": {
+        "tags": [
+          "MaintenanceRoutes"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/API/Other/Maintenance/Metrics": {
       "get": {
         "tags": [
           "MaintenanceRoutes"

@@ -1,0 +1,137 @@
+components: {}
+info:
+  contact:
+    name: Contact
+    url: http://clientinformationbackend.test.local:80/API/Other/Resources/Information/Contact
+  description: ClientInformationBackend is a service to retrieve information of the
+    own HTTP-client.
+  license:
+    name: License
+    url: http://clientinformationbackend.test.local:80/API/Other/Resources/Information/License
+  termsOfService: http://clientinformationbackend.test.local:80/API/Other/Resources/Information/TermsOfService
+  title: ClientInformationBackend v1.0.2 API documentation
+  version: v1.0.2
+openapi: 3.0.1
+paths:
+  /:
+    get:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                format: double
+                type: number
+            text/json:
+              schema:
+                format: double
+                type: number
+            text/plain:
+              schema:
+                format: double
+                type: number
+          description: OK
+      tags:
+      - HomePage
+  /API/Other/Maintenance/AvailabilityCheck:
+    get:
+      responses:
+        '200':
+          description: OK
+      tags:
+      - MaintenanceRoutes
+  /API/Other/Maintenance/CurrentVersion:
+    get:
+      responses:
+        '200':
+          description: OK
+      tags:
+      - MaintenanceRoutes
+  /API/Other/Maintenance/HealthCheck:
+    get:
+      responses:
+        '200':
+          description: OK
+      tags:
+      - MaintenanceRoutes
+  /API/Other/Maintenance/Metrics:
+    get:
+      responses:
+        '200':
+          description: OK
+      tags:
+      - MaintenanceRoutes
+  /API/Other/Maintenance/ShowAllEndpoints:
+    get:
+      responses:
+        '200':
+          description: OK
+      tags:
+      - MaintenanceRoutes
+  /API/Other/Resources/Information/Contact:
+    get:
+      responses:
+        '200':
+          description: OK
+      tags:
+      - CommonRoutes
+  /API/Other/Resources/Information/License:
+    get:
+      responses:
+        '200':
+          description: OK
+      tags:
+      - CommonRoutes
+  /API/Other/Resources/Information/TermsOfService:
+    get:
+      responses:
+        '200':
+          description: OK
+      tags:
+      - CommonRoutes
+  /API/v1/ClientInformationBackendController/Information:
+    get:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                format: double
+                type: number
+            text/json:
+              schema:
+                format: double
+                type: number
+            text/plain:
+              schema:
+                format: double
+                type: number
+          description: OK
+      tags:
+      - ClientInformationBackend
+  /API/v1/ClientInformationBackendController/Information/{ip}:
+    get:
+      parameters:
+      - in: path
+        name: ip
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                format: double
+                type: number
+            text/json:
+              schema:
+                format: double
+                type: number
+            text/plain:
+              schema:
+                format: double
+                type: number
+          description: OK
+      tags:
+      - ClientInformationBackend

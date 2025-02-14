@@ -12,11 +12,10 @@ using GRYLibrary.Core.Logging.GRYLogger;
 using GRYLibrary.Core.APIServer.MidT.Exception;
 using GRYLibrary.Core.APIServer.Mid.Ex;
 using Microsoft.AspNetCore.Builder;
-using OpenTelemetry.Metrics;
 using GRYLibrary.Core.APIServer.Mid.PreDAPIK;
 using ClientInformationBackend.Core.Miscellaneous;
 using GRYLibrary.Core.APIServer.Services.Interfaces;
-using GRYLibrary.Core.APIServer.Services.TS;
+using GRYLibrary.Core.APIServer.Services.OtherServices;
 using GRYLibrary.Core.APIServer.MaintenanceRoutes;
 using ClientInformationBackend.Core.Services;
 using GRYLibrary.Core.APIServer.Mid.M05DLog;
@@ -75,11 +74,6 @@ namespace ClientInformationBackend.Core
                     functionalInformation.WebApplicationBuilder.Services.AddSingleton<ITimeService>(timeService);
                     functionalInformation.WebApplicationBuilder.Services.AddSingleton<IMetricsService, MetricsService>();
                     functionalInformation.WebApplicationBuilder.Services.AddSingleton<IClientInformationBackendService, ClientInformationBackendService>();
-                    functionalInformation.WebApplicationBuilder.Services.AddOpenTelemetry().WithMetrics(builder =>
-                    {
-                        builder.AddMeter(CodeUnitSpecificConstants.MetricAmountOfDataSetsName);
-                        builder.AddPrometheusExporter();
-                    });
                 };
                 apiServerConfiguration.ConfigureWebApplication = (functionalInformationForWebApplication) =>
                 {
@@ -94,7 +88,6 @@ namespace ClientInformationBackend.Core
                         functionalInformationForWebApplication.WebApplication.Services.GetService<IMetricsService>().Stop().Wait();
                     };
                     functionalInformationForWebApplication.WebApplication.MapHealthChecks(GRYLibrary.Core.APIServer.Utilities.Constants.UsualHealthCheckEndpoint);
-                    functionalInformationForWebApplication.WebApplication.UseOpenTelemetryPrometheusScrapingEndpoint(GRYLibrary.Core.APIServer.Utilities.Constants.UsualMetricsEndpoint);
                 };
             });
         }
