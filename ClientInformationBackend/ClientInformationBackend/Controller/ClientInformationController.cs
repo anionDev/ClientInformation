@@ -29,7 +29,7 @@ namespace ClientInformationBackend.Core.Controller
         [Route($"{nameof(this.Information)}")]
         public IActionResult Information()
         {
-            return this.Information(GetClientIPAddress(HttpContext));
+            return this.Information(GetClientIPAddress(this.HttpContext));
         }
 
         [HttpGet]
@@ -37,7 +37,7 @@ namespace ClientInformationBackend.Core.Controller
         [Route($"{nameof(this.Information)}/{{{nameof(ip)}}}")]
         public IActionResult Information([FromRoute] string ip)
         {
-            return this.Ok(CalculateResponseForClientInformationRequest(ip, _ClientInformationBackendService));
+            return this.Ok(CalculateResponseForClientInformationRequest(ip, this._ClientInformationBackendService));
         }
         internal static string CalculateResponseForClientInformationRequest(string ip, IClientInformationBackendService clientInformationBackendService)
         {

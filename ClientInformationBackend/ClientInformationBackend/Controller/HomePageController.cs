@@ -19,7 +19,7 @@ namespace ClientInformationBackend.Core.Controller
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(decimal))]
         public IActionResult Information()
         {
-            return this.Ok(ClientInformationBackendController.CalculateResponseForClientInformationRequest(ClientInformationBackendController.GetClientIPAddress(HttpContext), _ClientInformationBackendService));
+            return this.Ok(ClientInformationBackendController.CalculateResponseForClientInformationRequest(ClientInformationBackendController.GetClientIPAddress(this.HttpContext), this._ClientInformationBackendService));
         }
     }
 }

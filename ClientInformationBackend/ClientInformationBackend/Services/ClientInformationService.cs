@@ -19,7 +19,7 @@ namespace ClientInformationBackend.Core.Services
 
         public ClientInformationBackendService(IPersistedAPIServerConfiguration<CodeUnitSpecificConfiguration> configuration)
         {
-            _Configuration = configuration;
+            this._Configuration = configuration;
             this.Initialize();
         }
 
