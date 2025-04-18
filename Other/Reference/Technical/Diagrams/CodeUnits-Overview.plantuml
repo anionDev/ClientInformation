@@ -1,0 +1,18 @@
+@startuml CodeUnits-Overview
+title CodeUnits of ClientInformation
+
+[ClientInformationBackend]
+note as ClientInformationBackendNote
+  ClientInformationBackend is a service to retrieve information of the own HTTP-client.
+end note
+ClientInformationBackend .. ClientInformationBackendNote
+
+[ClientInformation]
+note as ClientInformationNote
+  ClientInformation is a containerized variant of ClientInformationBackend.
+end note
+ClientInformation .. ClientInformationNote
+
+ClientInformation --> ClientInformationBackend
+
+@enduml

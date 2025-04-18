@@ -12,7 +12,7 @@ def prepare_build_codeunits():
     t.generate_tasksfile_from_workspace_file(repository_folder)
     t.ensure_plantuml_is_available(repository_folder)
     t.generate_codeunits_overview_diagram(repository_folder)
-    t.generate_svg_files_from_plantuml_files(repository_folder)
+    t.generate_svg_files_from_plantuml_files_for_repository(repository_folder)
 
 
 if __name__ == "__main__":

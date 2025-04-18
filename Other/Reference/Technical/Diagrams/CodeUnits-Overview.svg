@@ -1,0 +1,35 @@
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" contentStyleType="text/css" data-diagram-type="DESCRIPTION" height="294px" preserveAspectRatio="none" style="width:839px;height:294px;background:#FFFFFF;" version="1.1" viewBox="0 0 839 294" width="839px" zoomAndPan="magnify">
+  <ns0:title>CodeUnits of ClientInformation</ns0:title>
+  <ns0:defs />
+  <ns0:g>
+    <ns0:text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="206.876" x="309.1699" y="24.5332">CodeUnits of ClientInformation</ns0:text>
+    <ns0:g class="entity" data-entity="ClientInformationBackend" data-source-line="3" data-uid="ent0002" id="entity_ClientInformationBackend">
+      <ns0:rect fill="#F1F1F1" height="47.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="200.3096" x="159.5" y="153.6094" />
+      <ns0:rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="339.8096" y="158.6094" />
+      <ns0:rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="337.8096" y="160.6094" />
+      <ns0:rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="337.8096" y="164.6094" />
+      <ns0:text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="160.3096" x="174.5" y="188.1426">ClientInformationBackend</ns0:text>
+    </ns0:g>
+    <ns0:g class="entity" data-entity="ClientInformationBackendNote" data-source-line="5" data-uid="ent0003" id="entity_ClientInformationBackendNote">
+      <ns0:path d="M6,261.6094 L6,287.9609 A0,0 0 0 0 6,287.9609 L513.2622,287.9609 A0,0 0 0 0 513.2622,287.9609 L513.2622,271.6094 L503.2622,261.6094 L263.5,261.6094 L259.5,202.0894 L255.5,261.6094 L6,261.6094 A0,0 0 0 0 6,261.6094" fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;" />
+      <ns0:path d="M503.2622,261.6094 L503.2622,271.6094 L513.2622,271.6094 L503.2622,261.6094" fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;" />
+      <ns0:text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="486.2622" x="12" y="280.1045">ClientInformationBackend is a service to retrieve information of the own HTTP-client.</ns0:text>
+    </ns0:g>
+    <ns0:g class="entity" data-entity="ClientInformation" data-source-line="9" data-uid="ent0005" id="entity_ClientInformation">
+      <ns0:rect fill="#F1F1F1" height="47.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="145.8271" x="363.5" y="45.6094" />
+      <ns0:rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="489.3271" y="50.6094" />
+      <ns0:rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="487.3271" y="52.6094" />
+      <ns0:rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="487.3271" y="56.6094" />
+      <ns0:text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="105.8271" x="378.5" y="80.1426">ClientInformation</ns0:text>
+    </ns0:g>
+    <ns0:g class="entity" data-entity="ClientInformationNote" data-source-line="11" data-uid="ent0006" id="entity_ClientInformationNote">
+      <ns0:path d="M395,164.6094 L395,190.9609 A0,0 0 0 0 395,190.9609 L832.2158,190.9609 A0,0 0 0 0 832.2158,190.9609 L832.2158,174.6094 L822.2158,164.6094 L597.31,164.6094 L474.91,93.6094 L589.31,164.6094 L395,164.6094 A0,0 0 0 0 395,164.6094" fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;" />
+      <ns0:path d="M822.2158,164.6094 L822.2158,174.6094 L832.2158,174.6094 L822.2158,164.6094" fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;" />
+      <ns0:text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="416.2158" x="401" y="183.1045">ClientInformation is a containerized variant of ClientInformationBackend.</ns0:text>
+    </ns0:g>
+    <ns0:g class="link" data-entity-1="ClientInformation" data-entity-2="ClientInformationBackend" data-source-line="15" data-uid="lnk8" id="link_ClientInformation_ClientInformationBackend">
+      <ns0:path d="M398.09,93.6094 C368.51,111.3294 332.9276,132.6367 303.2876,150.3867" fill="none" id="ClientInformation-to-ClientInformationBackend" style="stroke:#181818;stroke-width:1;" />
+      <ns0:polygon fill="#181818" points="298.14,153.4694,307.9164,152.2771,302.4296,150.9005,303.8063,145.4137,298.14,153.4694" style="stroke:#181818;stroke-width:1;" />
+    </ns0:g>
+  </ns0:g>
+</ns0:svg>
