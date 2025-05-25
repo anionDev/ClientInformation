@@ -9,8 +9,8 @@ info:
     name: License
     url: http://clientinformationbackend.test.local:80/API/Other/Resources/Information/License
   termsOfService: http://clientinformationbackend.test.local:80/API/Other/Resources/Information/TermsOfService
-  title: ClientInformationBackend v1.0.5 API documentation
-  version: v1.0.5
+  title: ClientInformationBackend v1.0.6 API documentation
+  version: v1.0.6
 openapi: 3.0.4
 paths:
   /:
