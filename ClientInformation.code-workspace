@@ -3,14 +3,6 @@
 		{
 			"path": ".",
 			"name": "Entire repository"
-		},
-		{
-			"path": "./ClientInformation",
-			"name": "ClientInformation"
-		},
-		{
-			"path": "./ClientInformationBackend",
-			"name": "ClientInformationBackend"
 		}
 	],
 	"tasks": {
