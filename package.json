@@ -1,0 +1,7 @@
+{
+  "name": "ClientInformation",
+  "scripts": {
+    "prepare": "husky"
+  },
+  "version": "1.0.7"
+}
