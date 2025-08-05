@@ -17,11 +17,12 @@ def update_submodule_date_in_readme(repository_folder: str):
     readme_content = re.sub(date_regex, f"The last update-date of the geo-ip-data is {commitdate.strftime('%Y-%m-%d')}.", readme_content)
     GeneralUtilities.write_text_to_file(readme_file, readme_content)
 
+
 def update_dependencies():
     current_file = str(Path(__file__).absolute())
     repository_folder = GeneralUtilities.resolve_relative_path("../../..", current_file)
-    t:TasksForCommonProjectStructure=TasksForCommonProjectStructure()
-    t.update_iplocation_submodule(repository_folder,"ip-location-db")
+    t: TasksForCommonProjectStructure = TasksForCommonProjectStructure()
+    t.update_submodule(repository_folder, "ip-location-db")
     update_submodule_date_in_readme(repository_folder)
 
 
