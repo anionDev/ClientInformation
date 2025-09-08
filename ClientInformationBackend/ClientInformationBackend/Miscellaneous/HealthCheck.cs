@@ -24,7 +24,7 @@ namespace ClientInformationBackend.Core.Miscellaneous
                 HealthStatus result = HealthStatus.Healthy;
 
                 return (result, messages);
-            }, context, cancellationToken);
+            }, context, cancellationToken, null);
         }
     }
 }
