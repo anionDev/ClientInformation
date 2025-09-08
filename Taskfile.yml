@@ -7,7 +7,7 @@ tasks:
     silent: true
     dir: "."
     cmds:
-      - scbuildcodeunits
+      - "scbuildcodeunits"
     aliases:
       - basebuildallcodeunits
       - bb
@@ -17,7 +17,7 @@ tasks:
     silent: true
     dir: "./ClientInformation/Other/Reference/ReferenceContent/Examples/MinimalDockerComposeFile"
     cmds:
-      - python StartExample.py
+      - "python StartExample.py"
     aliases:
       - baseexamplestart
       - beu
@@ -27,7 +27,7 @@ tasks:
     silent: true
     dir: "./ClientInformation/Other/Reference/ReferenceContent/Examples/MinimalDockerComposeFile"
     cmds:
-      - python StopExample.py
+      - "python StopExample.py"
     aliases:
       - baseexamplestop
       - bed
