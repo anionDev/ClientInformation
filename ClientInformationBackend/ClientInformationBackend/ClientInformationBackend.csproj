@@ -2,9 +2,9 @@
     <PropertyGroup>
         <TargetFramework>net9.0</TargetFramework>
         <Authors>Marius Göcke</Authors>
-        <Version>1.0.10</Version>
-        <AssemblyVersion>1.0.10</AssemblyVersion>
-        <FileVersion>1.0.10</FileVersion>
+        <Version>1.0.11</Version>
+        <AssemblyVersion>1.0.11</AssemblyVersion>
+        <FileVersion>1.0.11</FileVersion>
         <SelfContained>false</SelfContained>
         <IsPackable>false</IsPackable>
         <PreserveCompilationContext>false</PreserveCompilationContext>
