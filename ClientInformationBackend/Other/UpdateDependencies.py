@@ -3,7 +3,7 @@ import os
 import shutil
 from pathlib import Path
 from ScriptCollection.GeneralUtilities import GeneralUtilities
-from ScriptCollection.TasksForCommonProjectStructure import TasksForCommonProjectStructure
+from ScriptCollection.TFCPS.DotNet.TFCPS_CodeUnitSpecific_DotNet import TFCPS_CodeUnitSpecific_DotNet_Functions,TFCPS_CodeUnitSpecific_DotNet_CLI
 
 
 @GeneralUtilities.check_arguments
@@ -19,7 +19,8 @@ def update_data_from_submodule(codeunit_folder: str) -> None:
 def update_dependencies():
     current_file = str(Path(__file__).absolute())
     codeunit_folder = GeneralUtilities.resolve_relative_path("../..", current_file)
-    TasksForCommonProjectStructure().update_dependencies_of_typical_dotnet_codeunit(current_file, 1, sys.argv)
+    tf:TFCPS_CodeUnitSpecific_DotNet_Functions=TFCPS_CodeUnitSpecific_DotNet_CLI.parse(__file__)
+    tf.update_dependencies()
     update_data_from_submodule(codeunit_folder)
 
 

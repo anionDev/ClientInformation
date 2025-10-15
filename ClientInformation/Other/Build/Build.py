@@ -1,14 +1,11 @@
-import sys
-from pathlib import Path
-from ScriptCollection.TasksForCommonProjectStructure import TasksForCommonProjectStructure
-
-
+from ScriptCollection.TFCPS.DotNet.TFCPS_CodeUnitSpecific_DotNet import TFCPS_CodeUnitSpecific_DotNet_Functions,TFCPS_CodeUnitSpecific_DotNet_CLI
+ 
 def build():
-    t = TasksForCommonProjectStructure()
-    build_script_file = str(Path(__file__).absolute())
-    t.standardized_tasks_build_for_docker_project(build_script_file, "QualityCheck", 1, sys.argv)
-    t.merge_sbom_file_from_dependent_codeunit_into_this(build_script_file, "ClientInformationBackend")
 
-
+    platforms = ["win-x64", "linux-x64"]
+    tf:TFCPS_CodeUnitSpecific_DotNet_Functions=TFCPS_CodeUnitSpecific_DotNet_CLI.parse(__file__)
+    tf.build(platforms, True) 
+    tf.tfcps_Tools_General.merge_sbom_file_from_dependent_codeunit_into_this(tf.get_codeunit_folder(),tf.get_codeunit_name(),"CountryInformationBackend",tf.use_cache())
+    
 if __name__ == "__main__":
     build()
