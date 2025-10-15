@@ -2,13 +2,12 @@ from pathlib import Path
 import re
 from ScriptCollection.GeneralUtilities import GeneralUtilities
 from ScriptCollection.ScriptCollectionCore import ScriptCollectionCore
-from ScriptCollection.TasksForCommonProjectStructure import TasksForCommonProjectStructure
+from ScriptCollection.TFCPS.TFCPS_Tools_General import TFCPS_Tools_General
 
 
 @GeneralUtilities.check_arguments
-def update_submodule_date_in_readme(repository_folder: str):
+def update_submodule_date_in_readme(repository_folder: str,sc:ScriptCollectionCore):
     submodule_folder = GeneralUtilities.resolve_relative_path("Other/Resources/Submodules/ip-location-db", repository_folder)
-    sc: ScriptCollectionCore = ScriptCollectionCore()
     commitdate = sc.git_get_commit_date(submodule_folder)
     readme_file = GeneralUtilities.resolve_relative_path("./ReadMe.md", repository_folder)
     readme_content = GeneralUtilities.read_text_from_file(readme_file)
@@ -20,10 +19,11 @@ def update_submodule_date_in_readme(repository_folder: str):
 
 def update_dependencies():
     current_file = str(Path(__file__).absolute())
+    sc: ScriptCollectionCore = ScriptCollectionCore()
     repository_folder = GeneralUtilities.resolve_relative_path("../../..", current_file)
-    t: TasksForCommonProjectStructure = TasksForCommonProjectStructure()
+    t: TFCPS_Tools_General = TFCPS_Tools_General(sc)
     t.update_submodule(repository_folder, "ip-location-db")
-    update_submodule_date_in_readme(repository_folder)
+    update_submodule_date_in_readme(repository_folder,sc)
 
 
 if __name__ == "__main__":
