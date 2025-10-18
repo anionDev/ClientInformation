@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.4",
   "info": {
-    "title": "ClientInformationBackend v1.0.10 API documentation",
+    "title": "ClientInformationBackend v1.0.11 API documentation",
     "description": "ClientInformationBackend is a service to retrieve information of the own HTTP-client.",
     "termsOfService": "http://clientinformationbackend.test.local:80/API/Other/Resources/Information/TermsOfService",
     "contact": {
@@ -12,7 +12,7 @@
       "name": "License",
       "url": "http://clientinformationbackend.test.local:80/API/Other/Resources/Information/License"
     },
-    "version": "v1.0.10"
+    "version": "v1.0.11"
   },
   "paths": {
     "/API/v1/ClientInformationBackendController/Information": {
