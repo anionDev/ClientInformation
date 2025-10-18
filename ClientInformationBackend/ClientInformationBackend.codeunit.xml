@@ -16,5 +16,9 @@
     </cps:properties>
     <cps:dependentcodeunits/>
     <cps:developerteam>
+        <cps:developer>
+            <cps:developername>Marius Göcke</cps:developername>
+            <cps:developeremailaddress>marius.goecke@gmail.com</cps:developeremailaddress>
+        </cps:developer>
     </cps:developerteam>
 </cps:codeunit>
