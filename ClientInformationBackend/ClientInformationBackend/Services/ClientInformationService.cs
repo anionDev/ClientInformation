@@ -81,7 +81,7 @@ namespace ClientInformationBackend.Core.Services
             {
                 if (range.Item1.Contains(ipAddress))
                 {
-                    return range.Item2;
+                    return range.Item2.Replace("\r",string.Empty);
                 }
             }
             throw new KeyNotFoundException();
