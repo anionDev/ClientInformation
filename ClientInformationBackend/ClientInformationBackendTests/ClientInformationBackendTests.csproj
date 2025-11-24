@@ -67,7 +67,7 @@
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
         <PackageReference Include="ExtendedXmlSerializer" Version="3.9.6" />
-        <PackageReference Include="GRYLibrary" Version="0.12.173" />
+        <PackageReference Include="GRYLibrary" Version="1.0.0" />
         <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.3.0" />
         <PackageReference Include="Microsoft.CodeCoverage" Version="18.0.1" />
         <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.0" />
@@ -87,6 +87,7 @@
         <PackageReference Include="MSTest.TestFramework" Version="4.0.2" />
         <PackageReference Include="NJsonSchema" Version="11.5.2" />
         <PackageReference Include="NSwag.AspNetCore" Version="14.6.3" />
+		<PackageReference Include="prometheus-net" Version="8.2.1" />
         <PackageReference Include="System.Collections.Immutable" Version="10.0.0" />
         <PackageReference Include="System.Reactive" Version="6.1.0" />
     </ItemGroup>

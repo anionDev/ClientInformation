@@ -9,8 +9,8 @@ info:
     name: License
     url: http://clientinformationbackend.test.local:80/API/Other/Resources/Information/License
   termsOfService: http://clientinformationbackend.test.local:80/API/Other/Resources/Information/TermsOfService
-  title: ClientInformationBackend v1.0.12 API documentation
-  version: v1.0.12
+  title: ClientInformationBackend v1.0.13 API documentation
+  version: v1.0.13
 openapi: 3.0.4
 paths:
   /:
@@ -48,6 +48,13 @@ paths:
       tags:
       - MaintenanceRoutes
   /API/Other/Maintenance/HealthCheck:
+    get:
+      responses:
+        '200':
+          description: OK
+      tags:
+      - MaintenanceRoutes
+  /API/Other/Maintenance/InitializationState:
     get:
       responses:
         '200':
@@ -135,3 +142,8 @@ paths:
           description: OK
       tags:
       - ClientInformationBackend
+tags:
+- name: ClientInformationBackend
+- name: CommonRoutes
+- name: HomePage
+- name: MaintenanceRoutes
