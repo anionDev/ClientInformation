@@ -10,6 +10,7 @@ Resources/Constants/CodeUnitMajorVersion.*
 Resources/Constants/CodeUnitVersion.*
 Resources/Constants/CommitDate.*
 Resources/Constants/CommitId.*
+Resources/Constants/CurrentTimestamp.*
 Resources/Constants/DevelopmentCertificatePasswordHex.*
 Resources/Constants/DevelopmentCertificatePFXHex.*
 Resources/CodeAnalysisResult/*
