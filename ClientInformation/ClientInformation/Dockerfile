@@ -9,4 +9,5 @@ ADD ./Other/Resources/DependentCodeUnits/ClientInformationBackend/BuildResult_Do
 
 WORKDIR /Workspace/Application
 HEALTHCHECK CMD curl --insecure --fail https://localhost:443/API/Other/Maintenance/HealthCheck
-ENTRYPOINT ["dotnet", "/Workspace/Application/ClientInformationBackend.dll"]
+#TODO pass commandline arguments
+ENTRYPOINT ["dotnet", "/Workspace/Application/ClientInformationBackend.dll", "--RealRun"]
