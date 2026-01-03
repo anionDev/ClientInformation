@@ -1,24 +1,28 @@
-using ClientInformationBackend.Core.Constants;
-using GRYLibrary.Core.Misc;
-using Microsoft.Extensions.DependencyInjection;
-using GUtilities = GRYLibrary.Core.Misc.Utilities;
 using ClientInformationBackend.Core.Configuration;
+using ClientInformationBackend.Core.Constants;
+using ClientInformationBackend.Core.Miscellaneous;
+using ClientInformationBackend.Core.Services;
 using GRYLibrary.Core.APIServer.CommonRoutes;
 using GRYLibrary.Core.APIServer.ConcreteEnvironments;
-using System.Collections.Generic;
-using GRYLibrary.Core.APIServer.Utilities;
-using Microsoft.Extensions.Logging;
-using GRYLibrary.Core.Logging.GRYLogger;
-using GRYLibrary.Core.APIServer.MidT.Exception;
+using GRYLibrary.Core.APIServer.MaintenanceRoutes;
 using GRYLibrary.Core.APIServer.Mid.Ex;
-using Microsoft.AspNetCore.Builder;
+using GRYLibrary.Core.APIServer.Mid.M05DLog;
 using GRYLibrary.Core.APIServer.Mid.PreDAPIK;
-using ClientInformationBackend.Core.Miscellaneous;
+using GRYLibrary.Core.APIServer.MidT.Exception;
+using GRYLibrary.Core.APIServer.Services.Init;
 using GRYLibrary.Core.APIServer.Services.Interfaces;
 using GRYLibrary.Core.APIServer.Services.OtherServices;
-using GRYLibrary.Core.APIServer.MaintenanceRoutes;
-using ClientInformationBackend.Core.Services;
-using GRYLibrary.Core.APIServer.Mid.M05DLog;
+using GRYLibrary.Core.APIServer.Settings.Configuration;
+using GRYLibrary.Core.APIServer.Utilities;
+using GRYLibrary.Core.Logging.GRYLogger;
+using GRYLibrary.Core.Misc;
+using GRYLibrary.Core.Misc.ConsoleApplication;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
+using Microsoft.Extensions.Logging;
+using System.Collections.Generic;
+using GUtilities = GRYLibrary.Core.Misc.Utilities;
 
 namespace ClientInformationBackend.Core
 {
@@ -31,7 +35,7 @@ namespace ClientInformationBackend.Core
             {
                 apiServerConfiguration.SetInitialzationInformationAction = (initializationInformation) =>
                 {
-                    string domain = Tools.GetDefaultDomainValue(GeneralConstants.CodeUnitName);
+                    string domain = string.IsNullOrWhiteSpace(initializationInformation.CommandlineParameter.InitialDomain) ? Tools.GetDefaultDomainValue(GeneralConstants.CodeUnitName) : initializationInformation.CommandlineParameter.InitialDomain;
 
                     initializationInformation.ApplicationConstants.CommonRoutesHostInformation = new HostCommonRoutes();
                     initializationInformation.ApplicationConstants.HostMaintenanceInformation = new HostMaintenanceRoutes();
@@ -43,19 +47,27 @@ namespace ClientInformationBackend.Core
                         LicenseLink = $"https://information.{domain}/Products/{GeneralConstants.CodeUnitName}/License",
                         TermsOfServiceLink = $"https://information.{domain}/Products/{GeneralConstants.CodeUnitName}/TermsOfService"
                     };
-                    initializationInformation.InitialApplicationConfiguration.ApplicationSpecificConfiguration.MaintenanceRoutesInformation = new MaintenanceRoutesInformation();
                     bool verbose = initializationInformation.ApplicationConstants.Environment is not Productive;
                     initializationInformation.InitialApplicationConfiguration.ApplicationSpecificConfiguration.RequestLoggingConfiguration = new DRequestLoggingConfiguration()
                     {
                         NotLoggedRoutes = new HashSet<string>() {
-                            "^/favicon.ico",
-                            "^/API/Other/Resources/APISpecification/.*",
-                            "^/API/Other/Maintenance/Metrics",
+                            @$"^/API/Other/Resources/APISpecification/*",
+                            @$"^/API/Other/Maintenance/Metrics$",
+                            @$"^/API/Other/Maintenance/HealthCheck$",
                         },
+                    };
+                    initializationInformation.InitialApplicationConfiguration.ApplicationSpecificConfiguration.MaintenanceRoutesInformation = new MaintenanceRoutesInformation()
+                    {
+                        EnableEndpointAvailabilityCheck = initializationInformation.CommandlineParameter.InitialEnableEndpointAvailabilityCheckValue,
+                        EnableEndpointInitializationState = initializationInformation.CommandlineParameter.InitialEnableEndpointInitializationStateValue,
+                        EnableEndpointCurrentVersion = initializationInformation.CommandlineParameter.InitialEnableEndpointCurrentVersionValue,
+                        EnableEndpointShowAllEndpoints = initializationInformation.CommandlineParameter.InitialEnableEndpointShowAllEndpointsValue,
+                        EnableEndpointHealthCheck = initializationInformation.CommandlineParameter.InitialEnableEndpointHealthCheckValue,
+                        EnableEndpointMetrics = initializationInformation.CommandlineParameter.InitialEnableEndpointMetricsValue,
                     };
                     initializationInformation.InitialApplicationConfiguration.ApplicationSpecificConfiguration.ConfigurationForExceptionManagerMiddleware = new ExceptionManagerConfiguration();
                     initializationInformation.InitialApplicationConfiguration.ServerConfiguration.HostAPISpecificationForInNonDevelopmentEnvironment = true;
-                    initializationInformation.InitialApplicationConfiguration.ServerConfiguration.Protocol = initializationInformation.ApplicationConstants.ExecutionMode.Accept(new GetProcolVisitor(domain));
+                    initializationInformation.InitialApplicationConfiguration.ServerConfiguration.Protocol = new HTTP();
                     initializationInformation.InitialApplicationConfiguration.ServerConfiguration.SetDomainAndPublichUrlToDefault(domain);
                     initializationInformation.InitialApplicationConfiguration.ServerConfiguration.DevelopmentCertificatePasswordHex = GeneralConstants.DevelopmentCertificatePasswordHex;
                     initializationInformation.InitialApplicationConfiguration.ServerConfiguration.DevelopmentCertificatePFXHex = GeneralConstants.DevelopmentCertificatePFXHex;
@@ -65,28 +77,36 @@ namespace ClientInformationBackend.Core
                     _Logger = functionalInformation.Logger;
                     TimeService timeService = new TimeService();
 
-                    functionalInformation.WebApplicationBuilder.Services.AddHealthChecks().AddCheck<HealthCheck>(nameof(HealthCheck));
+                    functionalInformation.WebApplicationBuilder.Services.AddSingleton<IHealthCheck, HealthCheck>();
                     functionalInformation.WebApplicationBuilder.Services.AddSingleton(functionalInformation.PersistedAPIServerConfiguration.ApplicationSpecificConfiguration.ConfigurationForExceptionManagerMiddleware);
                     functionalInformation.WebApplicationBuilder.Services.AddSingleton(functionalInformation.PersistedAPIServerConfiguration.ApplicationSpecificConfiguration.RequestLoggingConfiguration);
                     functionalInformation.WebApplicationBuilder.Services.AddSingleton(functionalInformation.PersistedAPIServerConfiguration.ApplicationSpecificConfiguration.CommonRoutesInformation);
                     functionalInformation.WebApplicationBuilder.Services.AddSingleton(functionalInformation.PersistedAPIServerConfiguration.ApplicationSpecificConfiguration.MaintenanceRoutesInformation);
                     functionalInformation.WebApplicationBuilder.Services.AddSingleton<ITimeService>(timeService);
                     functionalInformation.WebApplicationBuilder.Services.AddSingleton<IMetricsService, MetricsService>();
+                    functionalInformation.WebApplicationBuilder.Services.AddSingleton<IInitializationService<CodeUnitSpecificCommandlineParameter>, InitializationService>();
+                    functionalInformation.WebApplicationBuilder.Services.AddSingleton<IInitializationService>(sp => sp.GetRequiredService<IInitializationService<CodeUnitSpecificCommandlineParameter>>());
                     functionalInformation.WebApplicationBuilder.Services.AddSingleton<IClientInformationBackendService, ClientInformationBackendService>();
                 };
                 apiServerConfiguration.ConfigureWebApplication = (functionalInformationForWebApplication) =>
                 {
+                    bool runServices = functionalInformationForWebApplication.InitializationInformation.CommandlineParameter.RealRun;
                     functionalInformationForWebApplication.PreRun = () =>
                     {
-                        _Logger.Log($"Start services...", LogLevel.Information);
-                        functionalInformationForWebApplication.WebApplication.Services.GetService<IMetricsService>().StartAsync();
+                        if (runServices)
+                        {
+                            _Logger.Log($"Start services...", LogLevel.Information);
+                            functionalInformationForWebApplication.WebApplication.Services.GetService<IMetricsService>().StartAsync();
+                        }
                     };
                     functionalInformationForWebApplication.PostRun = () =>
                     {
-                        _Logger.Log($"Stop services...", LogLevel.Information);
-                        functionalInformationForWebApplication.WebApplication.Services.GetService<IMetricsService>().Stop().Wait();
+                        if (runServices)
+                        {
+                            _Logger.Log($"Stop services...", LogLevel.Information);
+                            functionalInformationForWebApplication.WebApplication.Services.GetService<IMetricsService>().Stop().Wait();
+                        }
                     };
-                    functionalInformationForWebApplication.WebApplication.MapHealthChecks(GRYLibrary.Core.APIServer.Utilities.Constants.UsualHealthCheckEndpoint);
                 };
             });
         }
