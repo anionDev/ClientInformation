@@ -11,7 +11,7 @@ But there are some [existing databases](https://github.com/sapics/ip-location-db
 And if the data itself are available for free then there should also exist a simple, free and self-hostable server which uses this data and provide it through a Rest-API.
 For this purpose you can use `ClientInformation`.
 With `ClientInformation` you can host this service on your own.
-The last update-date of the geo-ip-data is 2025-11-22.
+The last update-date of the geo-ip-data is 2026-01-02.
 
 ## Try out
 

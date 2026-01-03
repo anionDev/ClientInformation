@@ -1,12 +1,37 @@
-FROM mcr.microsoft.com/dotnet/aspnet:10.0
+ARG image_debian
+FROM ${image_debian}:stable-20251208-slim
+ENV ISRUNNINGINCONTAINER="true"
 
-RUN mkdir /Workspace \
-  && mkdir /Workspace/Data \
-  && mkdir /Workspace/Configuration \
-  && mkdir /Workspace/Logs
+RUN mkdir /Workspace && \
+    mkdir /Workspace/Application && \
+    mkdir /Workspace/Application/Backend && \
+    mkdir /Workspace/Configuration && \
+    mkdir /Workspace/Logs && \
+    mkdir /Workspace/Other && \
+    mkdir /Workspace/Other/Certificates && \
+    mkdir /Workspace/Other/EntryPoint && \
+    apt-get update && \
+    apt-get install -y curl nginx git libreoffice-core libreoffice-writer libreoffice-calc wget
 
-ADD ./Other/Resources/DependentCodeUnits/ClientInformationBackend/BuildResult_DotNet_win-x64 /Workspace/Application
+WORKDIR /Workspace/Other/EntryPoint
 
-WORKDIR /Workspace/Application
-HEALTHCHECK CMD curl --insecure --fail https://localhost:443/API/Other/Maintenance/HealthCheck
-ENTRYPOINT ["dotnet", "/Workspace/Application/ClientInformationBackend.dll"]
+RUN wget https://packages.microsoft.com/config/debian/13/packages-microsoft-prod.deb -O packages-microsoft-prod.deb && \
+    dpkg -i packages-microsoft-prod.deb && \
+    rm packages-microsoft-prod.deb && \
+    apt-get update && \
+    apt-get install -y aspnetcore-runtime-10.0
+
+RUN rm -rf /var/lib/apt/lists/*
+
+ADD Other/Resources/DependentCodeUnits/ClientInformationBackend/BuildResult_DotNet_linux-x64 /Workspace/Application/Backend
+COPY Other/Resources/DevelopmentCertificate/ClientInformationDevelopmentCertificate.crt /Workspace/Other/Certificates
+COPY Other/Resources/DevelopmentCertificate/ClientInformationDevelopmentCertificate.key /Workspace/Other/Certificates
+
+COPY ClientInformation/EntryPoint.sh /Workspace/Other/EntryPoint
+RUN chmod +x /Workspace/Other/EntryPoint/EntryPoint.sh
+COPY ClientInformation/HealthCheck.sh /Workspace/Other/EntryPoint
+RUN chmod +x /Workspace/Other/EntryPoint/HealthCheck.sh
+
+HEALTHCHECK CMD ./HealthCheck.sh
+
+ENTRYPOINT ["./EntryPoint.sh"]
