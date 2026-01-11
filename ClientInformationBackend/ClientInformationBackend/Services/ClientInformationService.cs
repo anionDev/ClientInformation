@@ -29,8 +29,9 @@ namespace ClientInformationBackend.Core.Services
             {
                 throw new BadRequestException($"Invalid IP-Address: \"{ipAddress}\"");
             }
-            return new ClientInformationBackendRecord(ipAddress)
+            return new ClientInformationBackendRecord()
             {
+                IPAddress = ipAddress,
                 Country = this.GetCountry(ipAddress),
                 Contact = this._Configuration.ApplicationSpecificConfiguration.ContactInformation,
                 LicenseInformation = this._Configuration.ApplicationSpecificConfiguration.LicenseInformation,
@@ -81,7 +82,7 @@ namespace ClientInformationBackend.Core.Services
             {
                 if (range.Item1.Contains(ipAddress))
                 {
-                    return range.Item2.Replace("\r",string.Empty);
+                    return range.Item2.Replace("\r", string.Empty);
                 }
             }
             throw new KeyNotFoundException();

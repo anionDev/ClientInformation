@@ -2,14 +2,13 @@
 {
     public record ClientInformationBackendRecord
     {
-        public ClientInformationBackendRecord(string ipAddress)
+        public ClientInformationBackendRecord()
         {
-            this.IPAddress = ipAddress;
         }
         /// <remarks>
         /// Only IPv4 supported until now.
         /// </remarks>
-        public string IPAddress { get; set; }
+        public required string IPAddress { get; set; }
         /// <summary>
         /// Represents the country which is <see cref="IPAddress"/> assigned to.
         /// </summary>
