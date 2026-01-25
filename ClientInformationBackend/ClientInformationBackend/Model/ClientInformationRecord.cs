@@ -16,8 +16,5 @@
         /// This value will be represented according to ISO-3166 alpha 2.
         /// </remarks>
         public string? Country { get; set; }
-        /// <summary>
-        /// Represents contactinformation regarding to the currently running ClientInformation-instance.
-        /// </summary>
     }
 }
