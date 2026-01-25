@@ -28,7 +28,7 @@ namespace ClientInformationBackend.Core
 {
     internal class Program
     {
-        private static IGRYLog _Logger;
+        private static IGRYLog _Logger=GRYLog.Create();
         internal static int Main(string[] commandlineArguments)
         {
             return Tools.RunAPIServer<CodeUnitSpecificCommandlineParameter, CodeUnitSpecificConstants, CodeUnitSpecificConfiguration>(GeneralConstants.CodeUnitName, GeneralConstants.CodeUnitDescription, Version3.Parse(GeneralConstants.CodeUnitVersion), GetEnvironmentTargetType(), GUtilities.GetExecutionMode(commandlineArguments), commandlineArguments, null, (apiServerConfiguration) =>
@@ -74,7 +74,6 @@ namespace ClientInformationBackend.Core
                 };
                 apiServerConfiguration.SetFunctionalInformationAction = (functionalInformation) =>
                 {
-                    _Logger = functionalInformation.Logger;
                     TimeService timeService = new TimeService();
 
                     functionalInformation.WebApplicationBuilder.Services.AddSingleton<IHealthCheck, HealthCheck>();
@@ -108,7 +107,7 @@ namespace ClientInformationBackend.Core
                         }
                     };
                 };
-            });
+            }, _Logger);
         }
 
         private static GRYEnvironment GetEnvironmentTargetType()
