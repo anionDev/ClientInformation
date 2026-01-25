@@ -30,8 +30,6 @@ namespace ClientInformationBackend.Tests.Testcases.Services
             {
                 IPAddress = ip,
                 Country = "US",
-                Contact = contactInformation,
-                LicenseInformation = licenseInformation,
             };
             ClientInformationBackendService ClientInformationBackendService = new ClientInformationBackendService(persistedAPIServerConfigurationMock.Object);
 

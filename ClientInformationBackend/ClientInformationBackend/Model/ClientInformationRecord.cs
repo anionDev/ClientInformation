@@ -19,10 +19,5 @@
         /// <summary>
         /// Represents contactinformation regarding to the currently running ClientInformation-instance.
         /// </summary>
-        public string? Contact { get; set; }
-        /// <summary>
-        /// Represents licenseinformation about the usage-conditions regarding to the currently running ClientInformation-instance.
-        /// </summary>
-        public string? LicenseInformation { get; set; }
     }
 }

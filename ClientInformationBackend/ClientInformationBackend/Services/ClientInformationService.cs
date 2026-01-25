@@ -33,8 +33,6 @@ namespace ClientInformationBackend.Core.Services
             {
                 IPAddress = ipAddress,
                 Country = this.GetCountry(ipAddress),
-                Contact = this._Configuration.ApplicationSpecificConfiguration.ContactInformation,
-                LicenseInformation = this._Configuration.ApplicationSpecificConfiguration.LicenseInformation,
             };
         }
 
