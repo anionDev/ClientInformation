@@ -1,5 +1,8 @@
 ARG image_debian
-FROM ${image_debian}:stable-20251208-slim
+FROM ${image_debian}
+ARG CodeUnitVersion
+ARG DotNetRuntime
+LABEL version=${CodeUnitVersion}
 ENV ISRUNNINGINCONTAINER="true"
 
 RUN mkdir /Workspace && \

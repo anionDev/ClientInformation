@@ -26,11 +26,10 @@ namespace ClientInformationBackend.Tests.Testcases.Services
             };
             Mock<IPersistedAPIServerConfiguration<CodeUnitSpecificConfiguration>> persistedAPIServerConfigurationMock = new Mock<IPersistedAPIServerConfiguration<CodeUnitSpecificConfiguration>>(MockBehavior.Strict);
             persistedAPIServerConfigurationMock.SetupGet(mock => mock.ApplicationSpecificConfiguration).Returns(codeUnitSpecificConfiguration);
-            ClientInformationBackendRecord expected = new ClientInformationBackendRecord(ip)
+            ClientInformationBackendRecord expected = new ClientInformationBackendRecord()
             {
+                IPAddress = ip,
                 Country = "US",
-                Contact = contactInformation,
-                LicenseInformation = licenseInformation,
             };
             ClientInformationBackendService ClientInformationBackendService = new ClientInformationBackendService(persistedAPIServerConfigurationMock.Object);
 

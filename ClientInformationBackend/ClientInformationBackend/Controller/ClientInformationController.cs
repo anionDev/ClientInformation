@@ -26,7 +26,7 @@ namespace ClientInformationBackend.Core.Controller
 
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(decimal))]
-        [Route($"{nameof(this.Information)}")]
+        [Route($"{nameof(Information)}")]
         public IActionResult Information()
         {
             return this.Information(GetClientIPAddress(this.HttpContext));
@@ -34,7 +34,7 @@ namespace ClientInformationBackend.Core.Controller
 
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(decimal))]
-        [Route($"{nameof(this.Information)}/{{{nameof(ip)}}}")]
+        [Route($"{nameof(Information)}/{{{nameof(ip)}}}")]
         public IActionResult Information([FromRoute] string ip)
         {
             return this.Ok(CalculateResponseForClientInformationRequest(ip, this._ClientInformationBackendService));
