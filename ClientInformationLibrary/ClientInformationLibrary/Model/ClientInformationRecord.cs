@@ -1,4 +1,4 @@
-﻿namespace ClientInformationBackend.Core.Model
+﻿namespace ClientInformation.Library.Core.Model
 {
     public record ClientInformationBackendRecord
     {

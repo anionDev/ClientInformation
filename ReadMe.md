@@ -26,10 +26,11 @@ You can just run `docker run -p 443:443 aniondev/clientinformation` to try out t
 
 This product requires to use `scbuildcodeunits` implemented/provided by [ScriptCollection](https://github.com/anionDev/ScriptCollection) to build the project.
 
-`ClientInformation` has 2 codeunits:
+`ClientInformation` has 3 codeunits:
 
 - [ClientInformation](./ClientInformation/Other/Reference/ReferenceContent/index.md)
 - [ClientInformationBackend](./ClientInformationBackend/Other/Reference/ReferenceContent/index.md)
+- [ClientInformationLibrary](./ClientInformationLibrary/Other/Reference/ReferenceContent/index.md)
 
 Please read also the "Get real ip-address of a client"-topic in the "Known issues"-section if you are running `ClientInformation` behind a reverse-proxy.
 

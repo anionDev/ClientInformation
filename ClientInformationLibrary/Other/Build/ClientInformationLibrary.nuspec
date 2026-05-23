@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
+    <metadata minClientVersion="2.12">
+        <id>ClientInformationLibrary</id>
+        <version>1.0.15</version>
+        <title>ClientInformationLibrary</title>
+        <authors>Marius Göcke</authors>
+        <owners>Marius Göcke</owners>
+        <requireLicenseAcceptance>true</requireLicenseAcceptance>
+        <copyright>Copyright © 2026 by Marius Göcke</copyright>
+        <description>ClientInformationLibrary is a shared library containing common types and helpers used by ClientInformation and ClientInformationBackend.</description>
+        <summary>ClientInformationLibrary is a shared library containing common types and helpers used by ClientInformation and ClientInformationBackend.</summary>
+        <license type="file">lib/net10/ClientInformationLibrary.License.txt</license>
+        <dependencies>
+            <group targetFramework="net10" />
+        </dependencies>
+        <projectUrl>https://github.com/anionDev/ClientInformation</projectUrl>
+        <repository type="git" url="https://github.com/anionDev/ClientInformation.git" branch="main" commit="$commitid$" />
+        <readme>Documentation\ReadMe.md</readme>
+    </metadata>
+    <files>
+        <file src="../Artifacts/BuildResult_DotNet_win-x64/ClientInformationLibrary.dll" target="lib/net10" />
+        <file src="../Artifacts/BuildResult_DotNet_win-x64/ClientInformationLibrary.License.txt" target="lib/net10" />
+        <file src="../Artifacts/BuildResult_DotNet_win-x64/ClientInformationLibrary.deps.json" target="lib/net10" />
+        <file src="..\..\ReadMe.md" target="Documentation\" />
+    </files>
+</package>

@@ -9,16 +9,16 @@
         <IsPackable>false</IsPackable>
         <PreserveCompilationContext>false</PreserveCompilationContext>
         <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
-        <Copyright>Copyright © 2025 Marius Göcke</Copyright>
-        <Description>ClientInformationBackendTests is the test-project for ClientInformationBackend.</Description>
-        <PackageProjectUrl>https://github.com/anionDev/ClientInformationBackend</PackageProjectUrl>
-        <RepositoryUrl>https://github.com/anionDev/ClientInformationBackend.git</RepositoryUrl>
-        <RootNamespace>ClientInformation.Backend.Tests</RootNamespace>
+        <Copyright>Copyright © 2026 Marius Göcke</Copyright>
+        <Description>ClientInformationLibraryTests is the test-project for ClientInformationLibrary.</Description>
+        <PackageProjectUrl>https://github.com/anionDev/ClientInformation</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/anionDev/ClientInformation.git</RepositoryUrl>
+        <RootNamespace>ClientInformationLibrary.Tests</RootNamespace>
         <ProduceReferenceAssembly>false</ProduceReferenceAssembly>
         <Nullable>enable</Nullable>
         <Configurations>Development;QualityCheck;Productive</Configurations>
         <IsTestProject>true</IsTestProject>
-        <LangVersion>11.0</LangVersion>
+        <LangVersion>12.0</LangVersion>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
         <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
@@ -31,7 +31,7 @@
         <DelaySign>true</DelaySign>
         <NoWarn>1701;1702;CA1822;CS1591;CS1573;IDE0045;IDE0046;IDE0054;IDE0058;IDE0074;IDE0090;CA1859;CS8002;IDE0063</NoWarn>
         <WarningsAsErrors>NU1605</WarningsAsErrors>
-        <ErrorLog>..\Other\Resources\CodeAnalysisResult\ClientInformationBackendTests.sarif</ErrorLog>
+        <ErrorLog>..\Other\Resources\CodeAnalysisResult\ClientInformationLibraryTests.sarif</ErrorLog>
         <OutputType>Library</OutputType>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Configuration)'=='Development'">
@@ -56,35 +56,16 @@
         <ErrorReport>none</ErrorReport>
     </PropertyGroup>
     <ItemGroup>
-        <ProjectReference Include="..\ClientInformationBackend\ClientInformationBackend.csproj" />
+        <ProjectReference Include="..\ClientInformationLibrary\ClientInformationLibrary.csproj" />
         <PackageReference Include="coverlet.collector" Version="6.0.4">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="ExtendedXmlSerializer" Version="3.9.6" />
-        <PackageReference Include="GRYLibrary" Version="2.0.3" />
-        <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.3.9" />
+        <PackageReference Include="GRYLibrary" Version="2.0.16" />
+        <PackageReference Include="IPAddressRange" Version="6.3.0" />
         <PackageReference Include="Microsoft.CodeCoverage" Version="18.0.1" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.2" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="10.0.2" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.2">
-            <PrivateAssets>all</PrivateAssets>
-            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-        </PackageReference>
-        <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks" Version="10.0.2" />
-        <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.2" />
-        <PackageReference Include="Microsoft.Extensions.Logging.EventLog" Version="10.0.2" />
-        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions"
-            Version="10.0.2" />
-        <PackageReference Include="Microsoft.Extensions.Options" Version="10.0.2" />
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.0.1" />
-        <PackageReference Include="Moq" Version="4.20.72" />
         <PackageReference Include="MSTest.TestAdapter" Version="4.0.2" />
         <PackageReference Include="MSTest.TestFramework" Version="4.0.2" />
-        <PackageReference Include="NJsonSchema" Version="11.5.2" />
-        <PackageReference Include="NSwag.AspNetCore" Version="14.6.3" />
-        <PackageReference Include="prometheus-net" Version="8.2.1" />
-        <PackageReference Include="System.Collections.Immutable" Version="10.0.2" />
-        <PackageReference Include="System.Reactive" Version="6.1.0" />
     </ItemGroup>
 </Project>

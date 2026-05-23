@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ClientInformationBackend.Core.Controller
+namespace ClientInformation.Backend.Core.Controller
 {
     [ApiController]
     [Route(ControllerRoute)]

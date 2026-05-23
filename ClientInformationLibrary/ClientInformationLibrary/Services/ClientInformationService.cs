@@ -1,5 +1,4 @@
-﻿using ClientInformationBackend.Core.Configuration;
-using ClientInformationBackend.Core.Model;
+﻿using ClientInformation.Library.Core.Model;
 using GRYLibrary.Core.APIServer.Settings.Configuration;
 using GRYLibrary.Core.Exceptions;
 using NetTools;
@@ -10,16 +9,14 @@ using System.Net;
 using System.Reflection;
 using GUtilities = GRYLibrary.Core.Misc.Utilities;
 
-namespace ClientInformationBackend.Core.Services
+namespace ClientInformation.Library.Core.Services
 {
     public class ClientInformationBackendService : IClientInformationBackendService
     {
         private readonly IDictionary<byte, IList<(IPAddressRange, string)>> _Cache = new Dictionary<byte, IList<(IPAddressRange, string)>>();
-        private readonly IPersistedAPIServerConfiguration<CodeUnitSpecificConfiguration> _Configuration;
 
-        public ClientInformationBackendService(IPersistedAPIServerConfiguration<CodeUnitSpecificConfiguration> configuration)
+        public ClientInformationBackendService()
         {
-            this._Configuration = configuration;
             this.Initialize();
         }
 
@@ -119,10 +116,10 @@ namespace ClientInformationBackend.Core.Services
         {
             /*
             triples are like
-163.199.254.0,163.199.254.255,GB
-163.199.255.0,163.203.255.255,ZA
-163.204.0.0,163.204.255.255,CN
-163.205.0.0,163.207.255.255,US
+            163.199.254.0,163.199.254.255,GB
+            163.199.255.0,163.203.255.255,ZA
+            163.204.0.0,163.204.255.255,CN
+            163.205.0.0,163.207.255.255,US
             now this data must be added to a cache in a format where the country can be looked up quickly for a specific ip
              */
             foreach (string plainTriple in dataResourceLines)

@@ -7,7 +7,7 @@ using System.Net;
 using GRYLibrary.Core.Exceptions;
 using System.Text.Json;
 
-namespace ClientInformationBackend.Core.Controller
+namespace ClientInformation.Backend.Core.Controller
 {
     [ApiController]
     [Route(ControllerRoute)]

@@ -1,10 +1,10 @@
 from ScriptCollection.TFCPS.DotNet.TFCPS_CodeUnitSpecific_DotNet import TFCPS_CodeUnitSpecific_DotNet_Functions,TFCPS_CodeUnitSpecific_DotNet_CLI
 
 
-def update_dependencies():
+def run_testcases():
     tf:TFCPS_CodeUnitSpecific_DotNet_Functions=TFCPS_CodeUnitSpecific_DotNet_CLI.parse(__file__)
-    tf.update_dependencies()
+    tf.run_testcases()
 
 
 if __name__ == "__main__":
-    update_dependencies()
+    run_testcases()
