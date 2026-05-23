@@ -1,93 +1,90 @@
 <Project Sdk="Microsoft.NET.Sdk">
-    <PropertyGroup>
-        <TargetFramework>net10.0</TargetFramework>
-        <Authors>Marius Göcke</Authors>
-        <Version>1.0.15</Version>
-        <AssemblyVersion>1.0.15</AssemblyVersion>
-        <FileVersion>1.0.15</FileVersion>
-        <SelfContained>false</SelfContained>
-        <IsPackable>false</IsPackable>
-        <PreserveCompilationContext>false</PreserveCompilationContext>
-        <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
-        <Copyright>Copyright © 2025 Marius Göcke</Copyright>
-        <Description>ClientInformationBackend is a service to retrieve information of the own HTTP-client.</Description>
-        <PackageProjectUrl>https://github.com/anionDev/ClientInformationBackend</PackageProjectUrl>
-        <RepositoryUrl>https://github.com/anionDev/ClientInformationBackend.git</RepositoryUrl>
-        <RootNamespace>ClientInformation.Backend.Core</RootNamespace>
-        <ProduceReferenceAssembly>false</ProduceReferenceAssembly>
-        <Nullable>enable</Nullable>
-        <Configurations>Development;QualityCheck;Productive</Configurations>
-        <IsTestProject>false</IsTestProject>
-        <LangVersion>11.0</LangVersion>
-        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-        <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
-        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-        <OutputPath>..\Other\Artifacts\BuildResult_DotNet_win-x64</OutputPath>
-        <PlatformTarget>AnyCPU</PlatformTarget>
-        <WarningLevel>4</WarningLevel>
-        <Prefer32Bit>false</Prefer32Bit>
-        <SignAssembly>true</SignAssembly>
-        <AssemblyOriginatorKeyFile>..\..\Other\Resources\PublicKeys\StronglyNamedKey\ClientInformationPublicKey.snk</AssemblyOriginatorKeyFile>
-        <DelaySign>true</DelaySign>
-        <NoWarn>1701;1702;CA1822;CS1591;CS1573;IDE0045;IDE0046;IDE0054;IDE0058;IDE0074;IDE0090;CA1859;CS8002</NoWarn>
-        <WarningsAsErrors>NU1605</WarningsAsErrors>
-        <ErrorLog>..\Other\Resources\CodeAnalysisResult\ClientInformationBackend.sarif</ErrorLog>
-        <OutputType>Exe</OutputType>
-        <DocumentationFile>..\Other\Artifacts\MetaInformation\ClientInformationBackend.xml</DocumentationFile>
-        <StartupObject>ClientInformationBackend.Core.Program</StartupObject>
-    </PropertyGroup>
-    <PropertyGroup Condition="'$(Configuration)'=='Development'">
-        <DebugType>full</DebugType>
-        <DebugSymbols>true</DebugSymbols>
-        <Optimize>false</Optimize>
-        <DefineConstants>TRACE;DEBUG;Development</DefineConstants>
-        <ErrorReport>prompt</ErrorReport>
-    </PropertyGroup>
-    <PropertyGroup Condition="'$(Configuration)'=='QualityCheck'">
-        <DebugType>portable</DebugType>
-        <DebugSymbols>true</DebugSymbols>
-        <Optimize>false</Optimize>
-        <DefineConstants>TRACE;QualityCheck</DefineConstants>
-        <ErrorReport>none</ErrorReport>
-    </PropertyGroup>
-    <PropertyGroup Condition="'$(Configuration)'=='Productive'">
-        <DebugType>portable</DebugType>
-        <DebugSymbols>true</DebugSymbols>
-        <Optimize>false</Optimize>
-        <DefineConstants>Productive</DefineConstants>
-        <ErrorReport>none</ErrorReport>
-    </PropertyGroup>
-    <ItemGroup>
-        <None Remove="Data\**" />
-        <EmbeddedResource Include="Data\**" />
-    </ItemGroup>
-    <ItemGroup>
-        <PackageReference Include="CommandLineParser" Version="2.9.1" />
-        <PackageReference Include="ExtendedXmlSerializer" Version="3.9.6" />
-        <PackageReference Include="GRYLibrary" Version="2.0.3" />
-        <PackageReference Include="IPAddressRange" Version="6.3.0" />
-        <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.3.9" />
-        <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.2" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="10.0.2" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.2">
-            <PrivateAssets>all</PrivateAssets>
-            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-        </PackageReference>
-        <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks" Version="10.0.2" />
-        <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions"
-            Version="10.0.2" />
-        <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
-        <PackageReference Include="prometheus-net" Version="8.2.1" />
-        <PackageReference Include="System.Collections.Immutable" Version="10.0.2" />
-        <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.2" />
-        <PackageReference Include="Microsoft.Extensions.Options" Version="10.0.2" />
-        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions"
-            Version="10.0.2" />
-        <PackageReference Include="NJsonSchema" Version="11.5.2" />
-        <PackageReference Include="NSwag.AspNetCore" Version="14.6.3" />
-        <PackageReference Include="System.Drawing.Common" Version="10.0.2" />
-        <PackageReference Include="System.Reactive" Version="6.1.0" />
-        <PackageReference Include="Swashbuckle.AspNetCore" Version="10.1.0" />
-    </ItemGroup>
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Authors>Marius Göcke</Authors>
+    <Version>1.0.15</Version>
+    <AssemblyVersion>1.0.15</AssemblyVersion>
+    <FileVersion>1.0.15</FileVersion>
+    <SelfContained>false</SelfContained>
+    <IsPackable>false</IsPackable>
+    <PreserveCompilationContext>false</PreserveCompilationContext>
+    <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
+    <Copyright>Copyright © 2025 Marius Göcke</Copyright>
+    <Description>ClientInformationBackend is a service to retrieve information of the own HTTP-client.</Description>
+    <PackageProjectUrl>https://github.com/anionDev/ClientInformationBackend</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/anionDev/ClientInformationBackend.git</RepositoryUrl>
+    <RootNamespace>ClientInformation.Backend.Core</RootNamespace>
+    <ProduceReferenceAssembly>false</ProduceReferenceAssembly>
+    <Nullable>enable</Nullable>
+    <Configurations>Development;QualityCheck;Productive</Configurations>
+    <IsTestProject>false</IsTestProject>
+    <LangVersion>11.0</LangVersion>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <OutputPath>..\Other\Artifacts\BuildResult_DotNet_win-x64</OutputPath>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\..\Other\Resources\PublicKeys\StronglyNamedKey\ClientInformationPublicKey.snk</AssemblyOriginatorKeyFile>
+    <DelaySign>true</DelaySign>
+    <NoWarn>1701;1702;CA1822;CS1591;CS1573;IDE0045;IDE0046;IDE0054;IDE0058;IDE0074;IDE0090;CA1859;CS8002</NoWarn>
+    <WarningsAsErrors>NU1605</WarningsAsErrors>
+    <ErrorLog>..\Other\Resources\CodeAnalysisResult\ClientInformationBackend.sarif</ErrorLog>
+    <OutputType>Exe</OutputType>
+    <DocumentationFile>..\Other\Artifacts\MetaInformation\ClientInformationBackend.xml</DocumentationFile>
+    <StartupObject>ClientInformationBackend.Core.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Development'">
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>false</Optimize>
+    <DefineConstants>TRACE;DEBUG;Development</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='QualityCheck'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>false</Optimize>
+    <DefineConstants>TRACE;QualityCheck</DefineConstants>
+    <ErrorReport>none</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Productive'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>false</Optimize>
+    <DefineConstants>Productive</DefineConstants>
+    <ErrorReport>none</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="CommandLineParser" Version="2.9.1" />
+    <PackageReference Include="ExtendedXmlSerializer" Version="3.9.6" />
+    <PackageReference Include="GRYLibrary" Version="2.0.3" />
+    <PackageReference Include="IPAddressRange" Version="6.3.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.3.9" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="10.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks" Version="10.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions" Version="10.0.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+    <PackageReference Include="prometheus-net" Version="8.2.1" />
+    <PackageReference Include="System.Collections.Immutable" Version="10.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="10.0.2" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.2" />
+    <PackageReference Include="NJsonSchema" Version="11.5.2" />
+    <PackageReference Include="NSwag.AspNetCore" Version="14.6.3" />
+    <PackageReference Include="System.Drawing.Common" Version="10.0.2" />
+    <PackageReference Include="System.Reactive" Version="6.1.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="10.1.0" />
+    <Reference Include="ClientInformationLibrary">
+      <HintPath>..\Other\Resources\DependentCodeUnits\ClientInformationLibrary\BuildResult_DotNet_win-x64\ClientInformationLibrary.dll</HintPath>
+    </Reference>
+  </ItemGroup>
 </Project>

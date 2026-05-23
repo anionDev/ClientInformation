@@ -2,6 +2,6 @@
 {
     public interface IClientInformationBackendService
     {
-        public Model.ClientInformationBackendRecord GetClientInformationBackend(string ipAddress);
+        public Model.ClientInformationBackendRecord GetClientInformationRecord(string ipAddress);
     }
 }

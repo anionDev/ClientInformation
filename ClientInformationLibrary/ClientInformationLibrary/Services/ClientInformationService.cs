@@ -20,7 +20,7 @@ namespace ClientInformation.Library.Core.Services
             this.Initialize();
         }
 
-        public ClientInformationBackendRecord GetClientInformationBackend(string ipAddress)
+        public ClientInformationBackendRecord GetClientInformationRecord(string ipAddress)
         {
             if (!IsValidIPAddress(ipAddress))
             {
@@ -154,7 +154,7 @@ namespace ClientInformation.Library.Core.Services
         private static string LoadDataResource()
         {
             Assembly assembly = Assembly.GetExecutingAssembly();
-            using Stream stream = assembly.GetManifestResourceStream("ClientInformationBackend.Core.Data.GeoIPData.csv");
+            using Stream stream = assembly.GetManifestResourceStream("ClientInformation.Library.Core.Data.GeoIPData.csv");
             using StreamReader reader = new StreamReader(stream);
             return reader.ReadToEnd();
         }

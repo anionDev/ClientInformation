@@ -1,63 +1,67 @@
 <Project Sdk="Microsoft.NET.Sdk">
-    <PropertyGroup>
-        <TargetFramework>net10.0</TargetFramework>
-        <Authors>Marius Göcke</Authors>
-        <Version>1.0.15</Version>
-        <AssemblyVersion>1.0.15</AssemblyVersion>
-        <FileVersion>1.0.15</FileVersion>
-        <SelfContained>false</SelfContained>
-        <IsPackable>false</IsPackable>
-        <PreserveCompilationContext>false</PreserveCompilationContext>
-        <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
-        <Copyright>Copyright © 2026 Marius Göcke</Copyright>
-        <Description>ClientInformationLibrary is a shared library containing common types and helpers used by ClientInformation and ClientInformationBackend.</Description>
-        <PackageProjectUrl>https://github.com/anionDev/ClientInformation</PackageProjectUrl>
-        <RepositoryUrl>https://github.com/anionDev/ClientInformation.git</RepositoryUrl>
-        <RootNamespace>ClientInformation.Library.Core</RootNamespace>
-        <ProduceReferenceAssembly>false</ProduceReferenceAssembly>
-        <Nullable>enable</Nullable>
-        <Configurations>Development;QualityCheck;Productive</Configurations>
-        <IsTestProject>false</IsTestProject>
-        <LangVersion>12.0</LangVersion>
-        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-        <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
-        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-        <OutputPath>..\Other\Artifacts\BuildResult_DotNet_win-x64</OutputPath>
-        <PlatformTarget>AnyCPU</PlatformTarget>
-        <WarningLevel>4</WarningLevel>
-        <Prefer32Bit>false</Prefer32Bit>
-        <SignAssembly>true</SignAssembly>
-        <AssemblyOriginatorKeyFile>..\..\Other\Resources\PublicKeys\StronglyNamedKey\ClientInformationPublicKey.snk</AssemblyOriginatorKeyFile>
-        <DelaySign>true</DelaySign>
-        <NoWarn>1701;1702;CA1822;CS1591;CS1573;IDE0045;IDE0046;IDE0054;IDE0058;IDE0074;IDE0090;CA1859;CS8002</NoWarn>
-        <WarningsAsErrors>NU1605</WarningsAsErrors>
-        <ErrorLog>..\Other\Resources\CodeAnalysisResult\ClientInformationLibrary.sarif</ErrorLog>
-        <OutputType>Library</OutputType>
-        <DocumentationFile>..\Other\Artifacts\MetaInformation\ClientInformationLibrary.xml</DocumentationFile>
-    </PropertyGroup>
-    <PropertyGroup Condition="'$(Configuration)'=='Development'">
-        <DebugType>full</DebugType>
-        <DebugSymbols>true</DebugSymbols>
-        <Optimize>false</Optimize>
-        <DefineConstants>TRACE;DEBUG;Development</DefineConstants>
-        <ErrorReport>prompt</ErrorReport>
-    </PropertyGroup>
-    <PropertyGroup Condition="'$(Configuration)'=='QualityCheck'">
-        <DebugType>portable</DebugType>
-        <DebugSymbols>true</DebugSymbols>
-        <Optimize>false</Optimize>
-        <DefineConstants>TRACE;QualityCheck</DefineConstants>
-        <ErrorReport>none</ErrorReport>
-    </PropertyGroup>
-    <PropertyGroup Condition="'$(Configuration)'=='Productive'">
-        <DebugType>portable</DebugType>
-        <DebugSymbols>true</DebugSymbols>
-        <Optimize>false</Optimize>
-        <DefineConstants>Productive</DefineConstants>
-        <ErrorReport>none</ErrorReport>
-    </PropertyGroup>
-    <ItemGroup>
-      <PackageReference Include="GRYLibrary" Version="2.0.16" />
-      <PackageReference Include="IPAddressRange" Version="6.3.0" />
-    </ItemGroup>
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Authors>Marius Göcke</Authors>
+    <Version>1.0.15</Version>
+    <AssemblyVersion>1.0.15</AssemblyVersion>
+    <FileVersion>1.0.15</FileVersion>
+    <SelfContained>false</SelfContained>
+    <IsPackable>false</IsPackable>
+    <PreserveCompilationContext>false</PreserveCompilationContext>
+    <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
+    <Copyright>Copyright © 2026 Marius Göcke</Copyright>
+    <Description>ClientInformationLibrary is a shared library containing common types and helpers used by ClientInformation and ClientInformationBackend.</Description>
+    <PackageProjectUrl>https://github.com/anionDev/ClientInformation</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/anionDev/ClientInformation.git</RepositoryUrl>
+    <RootNamespace>ClientInformation.Library.Core</RootNamespace>
+    <ProduceReferenceAssembly>false</ProduceReferenceAssembly>
+    <Nullable>enable</Nullable>
+    <Configurations>Development;QualityCheck;Productive</Configurations>
+    <IsTestProject>false</IsTestProject>
+    <LangVersion>12.0</LangVersion>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <OutputPath>..\Other\Artifacts\BuildResult_DotNet_win-x64</OutputPath>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\..\Other\Resources\PublicKeys\StronglyNamedKey\ClientInformationPublicKey.snk</AssemblyOriginatorKeyFile>
+    <DelaySign>true</DelaySign>
+    <NoWarn>1701;1702;CA1822;CS1591;CS1573;IDE0045;IDE0046;IDE0054;IDE0058;IDE0074;IDE0090;CA1859;CS8002</NoWarn>
+    <WarningsAsErrors>NU1605</WarningsAsErrors>
+    <ErrorLog>..\Other\Resources\CodeAnalysisResult\ClientInformationLibrary.sarif</ErrorLog>
+    <OutputType>Library</OutputType>
+    <DocumentationFile>..\Other\Artifacts\MetaInformation\ClientInformationLibrary.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Development'">
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>false</Optimize>
+    <DefineConstants>TRACE;DEBUG;Development</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='QualityCheck'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>false</Optimize>
+    <DefineConstants>TRACE;QualityCheck</DefineConstants>
+    <ErrorReport>none</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Productive'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>false</Optimize>
+    <DefineConstants>Productive</DefineConstants>
+    <ErrorReport>none</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Data\**" />
+    <EmbeddedResource Include="Data\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="GRYLibrary" Version="2.0.16" />
+    <PackageReference Include="IPAddressRange" Version="6.3.0" />
+  </ItemGroup>
 </Project>

@@ -1,10 +1,6 @@
 ﻿using ClientInformationBackend.Core.Configuration;
-using ClientInformationBackend.Core.Model;
-using ClientInformationBackend.Core.Services;
-using GRYLibrary.Core.APIServer.Settings.Configuration;
 using GRYLibrary.Core.Misc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
 
 namespace ClientInformationBackend.Tests.Testcases.Services
 {
@@ -24,17 +20,15 @@ namespace ClientInformationBackend.Tests.Testcases.Services
                 ContactInformation = contactInformation,
                 LicenseInformation = licenseInformation,
             };
-            Mock<IPersistedAPIServerConfiguration<CodeUnitSpecificConfiguration>> persistedAPIServerConfigurationMock = new Mock<IPersistedAPIServerConfiguration<CodeUnitSpecificConfiguration>>(MockBehavior.Strict);
-            persistedAPIServerConfigurationMock.SetupGet(mock => mock.ApplicationSpecificConfiguration).Returns(codeUnitSpecificConfiguration);
-            ClientInformationBackendRecord expected = new ClientInformationBackendRecord()
+            ClientInformation.Library.Core.Model.ClientInformationBackendRecord expected = new ClientInformation.Library.Core.Model.ClientInformationBackendRecord()
             {
                 IPAddress = ip,
                 Country = "US",
             };
-            ClientInformationBackendService ClientInformationBackendService = new ClientInformationBackendService(persistedAPIServerConfigurationMock.Object);
+            ClientInformation.Library.Core.Services.IClientInformationBackendService ClientInformationBackendService = new ClientInformation.Library.Core.Services.ClientInformationBackendService();
 
             // act
-            ClientInformationBackendRecord actual = ClientInformationBackendService.GetClientInformationBackend(ip);
+            ClientInformation.Library.Core.Model.ClientInformationBackendRecord actual = ClientInformationBackendService.GetClientInformationRecord(ip);
 
             // assert
             Assert.AreEqual(expected, actual);

@@ -1,18 +1,7 @@
 ﻿using ClientInformationBackend.Core.Configuration;
-using ClientInformationBackend.Core.Constants;
-using GRYLibrary.Core.APIServer.CommonDBTypes;
-using GRYLibrary.Core.APIServer.ConcreteEnvironments;
 using GRYLibrary.Core.APIServer.Services.Init;
-using GRYLibrary.Core.APIServer.Services.Interfaces;
-using GRYLibrary.Core.APIServer.Settings;
 using GRYLibrary.Core.APIServer.Utilities;
 using GRYLibrary.Core.APIServer.Utilities.InitializationStates;
-using GRYLibrary.Core.Logging.GeneralPurposeLogger;
-using GRYLibrary.Core.Misc;
-using GRYLibrary.Core.Misc.ConsoleApplication;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ClientInformationBackend.Core.Services
 {
