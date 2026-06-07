@@ -66,7 +66,7 @@ The reason why the default-value of `TrustForwardedHeader` can not be `true` is 
 IPv6 is currently not supported.
 Only IPv4-addresses are supported by `ClientInformation`.
 
-## Contribue
+## Contribute
 
 Contributions are always welcome.
 

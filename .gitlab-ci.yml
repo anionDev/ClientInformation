@@ -1,0 +1,22 @@
+stages:
+  - buildpipeline
+variables:
+  GIT_DEPTH: 0
+  GIT_SUBMODULE_STRATEGY: recursive
+  GIT_SUBMODULE_DEPTH: 0
+workflow:
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "api"'
+run-script:
+  stage: buildpipeline
+  before_script:
+    - scpreparebuildpipelineforgitlab
+  script:
+    - scbuildcodeunits
+  tags:
+    - scriptcollection
+  artifacts:
+    paths:
+      - ClientInformation/Other/Artifacts
+      - ClientInformationBackend/Other/Artifacts
+      - ClientInformationLibrary/Other/Artifacts

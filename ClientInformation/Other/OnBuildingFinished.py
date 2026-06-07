@@ -3,8 +3,10 @@ from ScriptCollection.TFCPS.Docker.TFCPS_CodeUnitSpecific_Docker import TFCPS_Co
 
 def on_building_finished():
     tf:TFCPS_CodeUnitSpecific_Docker_Functions=TFCPS_CodeUnitSpecific_Docker_CLI.parse(__file__)
-    tf.verify_image_is_working(None,None,80,"/API/Other/Maintenance/AvailabilityCheck",False)
+    tf.verify_image_is_working_via_network(None,{
+        "InitialDatabaseType":"Transient"
+    },443,"/API/Other/Maintenance/AvailabilityCheck",True,"clientinformation_net")
+    tf._protected_sc.ensure_docker_network_is_not_available("clientinformation_net")
  
 if __name__ == "__main__":
     on_building_finished()
- 
