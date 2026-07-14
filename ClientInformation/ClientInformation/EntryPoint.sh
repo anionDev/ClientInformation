@@ -2,7 +2,7 @@
 
 export IsRunningInDockerContainer=true
 
-argument="--RealRun"
+argument="--RealRun true"
 
 if [[ -n "${InitialDomain}" ]]; then
     argument+=" --InitialDomain $InitialDomain"
@@ -30,6 +30,10 @@ fi
 
 if [[ -n "${InitialEnableEndpointMetricsValue}" ]]; then
     argument+=" --InitialEnableEndpointMetricsValue $InitialEnableEndpointMetricsValue"
+fi
+
+if [[ "${EnforceVerbose}" == "true" ]]; then
+    argument+=" --EnforceVerbose true"
 fi
 
 { cd /Workspace/Application/Backend && dotnet ./ClientInformationBackend.dll $argument; } &

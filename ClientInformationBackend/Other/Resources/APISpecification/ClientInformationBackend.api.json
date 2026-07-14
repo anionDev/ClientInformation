@@ -230,7 +230,7 @@
       }
     }
   },
-  "components": { },
+  "components": {},
   "tags": [
     {
       "name": "ClientInformationBackend"

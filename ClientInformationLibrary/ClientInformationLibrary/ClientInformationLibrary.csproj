@@ -61,7 +61,7 @@
     <EmbeddedResource Include="Data\**" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="GRYLibrary" Version="2.0.16" />
+    <PackageReference Include="GRYLibrary" Version="2.0.23" />
     <PackageReference Include="IPAddressRange" Version="6.3.0" />
   </ItemGroup>
 </Project>

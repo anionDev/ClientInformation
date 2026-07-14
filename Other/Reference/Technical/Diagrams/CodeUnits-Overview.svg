@@ -1,54 +1,53 @@
 <?xml version='1.0' encoding='utf-8'?>
-<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" contentStyleType="text/css" data-diagram-type="DESCRIPTION" height="402px" preserveAspectRatio="none" style="width:1186px;height:402px;background:#FFFFFF;" version="1.1" viewBox="0 0 1186 402" width="1186px" zoomAndPan="magnify">
-  <ns0:title>CodeUnits of ClientInformation</ns0:title>
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" contentStyleType="text/css" data-diagram-type="DESCRIPTION" height="402px" preserveAspectRatio="none" style="width:1345px;height:402px;background:#FFFFFF;" version="1.1" viewBox="0 0 1345 402" width="1345px" zoomAndPan="magnify">
   <ns0:defs />
   <ns0:g>
-    <ns0:g class="title" data-source-line="1">
-      <ns0:text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="206.876" x="482.9199" y="24.5332">CodeUnits of ClientInformation</ns0:text>
+    <ns0:g class="title" data-source-line="2">
+      <ns0:text fill="#000000" font-family="'DejaVu Sans'" font-size="14" font-weight="700" lengthAdjust="spacing" textLength="244.9521" x="546.9189" y="22.9951">CodeUnits of ClientInformation</ns0:text>
     </ns0:g>
-    <ns0:g class="entity" data-entity="ClientInformationLibrary" data-source-line="3" data-uid="ent0002" id="entity_ClientInformationLibrary">
-      <ns0:rect fill="#F1F1F1" height="47.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="188.6201" x="321.5" y="261.6094" />
-      <ns0:rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="490.1201" y="266.6094" />
-      <ns0:rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="488.1201" y="268.6094" />
-      <ns0:rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="488.1201" y="272.6094" />
-      <ns0:text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="148.6201" x="336.5" y="296.1426">ClientInformationLibrary</ns0:text>
+    <ns0:g class="entity" data-qualified-name="ClientInformationLibrary" data-source-line="4" id="ent0001">
+      <ns0:rect fill="#F1F1F1" height="46.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="210.7686" x="367.5" y="256.2969" />
+      <ns0:rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="558.2686" y="261.2969" />
+      <ns0:rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="556.2686" y="263.2969" />
+      <ns0:rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="556.2686" y="267.2969" />
+      <ns0:text fill="#000000" font-family="'DejaVu Sans'" font-size="14" lengthAdjust="spacing" textLength="170.7686" x="382.5" y="289.292">ClientInformationLibrary</ns0:text>
     </ns0:g>
-    <ns0:g class="entity" data-entity="ClientInformationLibraryNote" data-source-line="5" data-uid="ent0003" id="entity_ClientInformationLibraryNote">
-      <ns0:path d="M6,369.6094 L6,395.9609 A0,0 0 0 0 6,395.9609 L826.1953,395.9609 A0,0 0 0 0 826.1953,395.9609 L826.1953,379.6094 L816.1953,369.6094 L420,369.6094 L416,310.0894 L412,369.6094 L6,369.6094 A0,0 0 0 0 6,369.6094" fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;" />
-      <ns0:path d="M816.1953,369.6094 L816.1953,379.6094 L826.1953,379.6094 L816.1953,369.6094" fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;" />
-      <ns0:text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="799.1953" x="12" y="388.1045">ClientInformationLibrary is a shared library containing common types and helpers used by ClientInformation and ClientInformationBackend.</ns0:text>
+    <ns0:g class="entity" data-qualified-name="ClientInformationLibraryNote" data-source-line="6" id="ent0002">
+      <ns0:path d="M6,362.2969 L6,387.4297 A0,0 0 0 0 6,387.4297 L939.7168,387.4297 A0,0 0 0 0 939.7168,387.4297 L939.7168,372.2969 L929.7168,362.2969 L477,362.2969 L473,302.4569 L469,362.2969 L6,362.2969 A0,0 0 0 0 6,362.2969" fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;" />
+      <ns0:path d="M929.7168,362.2969 L929.7168,372.2969 L939.7168,372.2969 L929.7168,362.2969" fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;" />
+      <ns0:text fill="#000000" font-family="'DejaVu Sans'" font-size="13" lengthAdjust="spacing" textLength="912.7168" x="12" y="379.3638">ClientInformationLibrary is a shared library containing common types and helpers used by ClientInformation and ClientInformationBackend.</ns0:text>
     </ns0:g>
-    <ns0:g class="entity" data-entity="ClientInformationBackend" data-source-line="9" data-uid="ent0005" id="entity_ClientInformationBackend">
-      <ns0:rect fill="#F1F1F1" height="47.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="200.3096" x="507" y="153.6094" />
-      <ns0:rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="687.3096" y="158.6094" />
-      <ns0:rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="685.3096" y="160.6094" />
-      <ns0:rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="685.3096" y="164.6094" />
-      <ns0:text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="160.3096" x="522" y="188.1426">ClientInformationBackend</ns0:text>
+    <ns0:g class="entity" data-qualified-name="ClientInformationBackend" data-source-line="10" id="ent0004">
+      <ns0:rect fill="#F1F1F1" height="46.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="222.1777" x="576" y="150.2969" />
+      <ns0:rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="778.1777" y="155.2969" />
+      <ns0:rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="776.1777" y="157.2969" />
+      <ns0:rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="776.1777" y="161.2969" />
+      <ns0:text fill="#000000" font-family="'DejaVu Sans'" font-size="14" lengthAdjust="spacing" textLength="182.1777" x="591" y="183.292">ClientInformationBackend</ns0:text>
     </ns0:g>
-    <ns0:g class="entity" data-entity="ClientInformationBackendNote" data-source-line="11" data-uid="ent0006" id="entity_ClientInformationBackendNote">
-      <ns0:path d="M545.5,272.6094 L545.5,298.9609 A0,0 0 0 0 545.5,298.9609 L1052.7622,298.9609 A0,0 0 0 0 1052.7622,298.9609 L1052.7622,282.6094 L1042.7622,272.6094 L781.09,272.6094 L648.66,201.6094 L773.09,272.6094 L545.5,272.6094 A0,0 0 0 0 545.5,272.6094" fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;" />
-      <ns0:path d="M1042.7622,272.6094 L1042.7622,282.6094 L1052.7622,282.6094 L1042.7622,272.6094" fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;" />
-      <ns0:text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="486.2622" x="551.5" y="291.1045">ClientInformationBackend is a service to retrieve information of the own HTTP-client.</ns0:text>
+    <ns0:g class="entity" data-qualified-name="ClientInformationBackendNote" data-source-line="12" id="ent0005">
+      <ns0:path d="M613.5,266.7969 L613.5,291.9297 A0,0 0 0 0 613.5,291.9297 L1188.0156,291.9297 A0,0 0 0 0 1188.0156,291.9297 L1188.0156,276.7969 L1178.0156,266.7969 L881.21,266.7969 L732.38,196.3569 L873.21,266.7969 L613.5,266.7969 A0,0 0 0 0 613.5,266.7969" fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;" />
+      <ns0:path d="M1178.0156,266.7969 L1178.0156,276.7969 L1188.0156,276.7969 L1178.0156,266.7969" fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;" />
+      <ns0:text fill="#000000" font-family="'DejaVu Sans'" font-size="13" lengthAdjust="spacing" textLength="553.5156" x="619.5" y="283.8638">ClientInformationBackend is a service to retrieve information of the own HTTP-client.</ns0:text>
     </ns0:g>
-    <ns0:g class="entity" data-entity="ClientInformation" data-source-line="15" data-uid="ent0008" id="entity_ClientInformation">
-      <ns0:rect fill="#F1F1F1" height="47.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="145.8271" x="711" y="45.6094" />
-      <ns0:rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="836.8271" y="50.6094" />
-      <ns0:rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="834.8271" y="52.6094" />
-      <ns0:rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="834.8271" y="56.6094" />
-      <ns0:text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="105.8271" x="726" y="80.1426">ClientInformation</ns0:text>
+    <ns0:g class="entity" data-qualified-name="ClientInformation" data-source-line="16" id="ent0007">
+      <ns0:rect fill="#F1F1F1" height="46.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="161.8164" x="803" y="44.2969" />
+      <ns0:rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="944.8164" y="49.2969" />
+      <ns0:rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="942.8164" y="51.2969" />
+      <ns0:rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="942.8164" y="55.2969" />
+      <ns0:text fill="#000000" font-family="'DejaVu Sans'" font-size="14" lengthAdjust="spacing" textLength="121.8164" x="818" y="77.292">ClientInformation</ns0:text>
     </ns0:g>
-    <ns0:g class="entity" data-entity="ClientInformationNote" data-source-line="17" data-uid="ent0009" id="entity_ClientInformationNote">
-      <ns0:path d="M742.5,164.6094 L742.5,190.9609 A0,0 0 0 0 742.5,190.9609 L1179.7158,190.9609 A0,0 0 0 0 1179.7158,190.9609 L1179.7158,174.6094 L1169.7158,164.6094 L944.81,164.6094 L822.41,93.6094 L936.81,164.6094 L742.5,164.6094 A0,0 0 0 0 742.5,164.6094" fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;" />
-      <ns0:path d="M1169.7158,164.6094 L1169.7158,174.6094 L1179.7158,174.6094 L1169.7158,164.6094" fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;" />
-      <ns0:text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="416.2158" x="748.5" y="183.1045">ClientInformation is a containerized variant of ClientInformationBackend.</ns0:text>
+    <ns0:g class="entity" data-qualified-name="ClientInformationNote" data-source-line="18" id="ent0008">
+      <ns0:path d="M833.5,160.7969 L833.5,185.9297 A0,0 0 0 0 833.5,185.9297 L1330.79,185.9297 A0,0 0 0 0 1330.79,185.9297 L1330.79,170.7969 L1320.79,160.7969 L1063.99,160.7969 L925.99,90.3569 L1055.99,160.7969 L833.5,160.7969 A0,0 0 0 0 833.5,160.7969" fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;" />
+      <ns0:path d="M1320.79,160.7969 L1320.79,170.7969 L1330.79,170.7969 L1320.79,160.7969" fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;" />
+      <ns0:text fill="#000000" font-family="'DejaVu Sans'" font-size="13" lengthAdjust="spacing" textLength="476.29" x="839.5" y="177.8638">ClientInformation is a containerized variant of ClientInformationBackend.</ns0:text>
     </ns0:g>
-    <ns0:g class="link" data-entity-1="ClientInformationBackend" data-entity-2="ClientInformationLibrary" data-source-line="21" data-uid="lnk11" id="link_ClientInformationBackend_ClientInformationLibrary">
-      <ns0:path d="M565.56,201.6094 C533.63,219.3294 494.9265,240.8083 462.9365,258.5583" fill="none" id="ClientInformationBackend-to-ClientInformationLibrary" style="stroke:#181818;stroke-width:1;" />
-      <ns0:polygon fill="#181818" points="457.69,261.4694,467.5004,260.6004,462.0621,259.0435,463.619,253.6051,457.69,261.4694" style="stroke:#181818;stroke-width:1;" />
+    <ns0:g class="link" data-entity-1="ent0004" data-entity-2="ent0001" data-link-type="dependency" data-source-line="22" id="lnk10">
+      <ns0:path d="M641.62,196.3569 C605.3,213.9969 559.1171,236.4515 522.8171,254.0915" fill="none" id="ClientInformationBackend-to-ClientInformationLibrary" style="stroke:#181818;stroke-width:1;" />
+      <ns0:polygon fill="#181818" points="518.32,256.2769,528.1631,255.9409,522.8171,254.0915,524.6665,248.7455,518.32,256.2769" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;" />
     </ns0:g>
-    <ns0:g class="link" data-entity-1="ClientInformation" data-entity-2="ClientInformationBackend" data-source-line="22" data-uid="lnk12" id="link_ClientInformation_ClientInformationBackend">
-      <ns0:path d="M745.59,93.6094 C716.01,111.3294 680.4276,132.6367 650.7876,150.3867" fill="none" id="ClientInformation-to-ClientInformationBackend" style="stroke:#181818;stroke-width:1;" />
-      <ns0:polygon fill="#181818" points="645.64,153.4694,655.4164,152.2771,649.9296,150.9005,651.3063,145.4137,645.64,153.4694" style="stroke:#181818;stroke-width:1;" />
+    <ns0:g class="link" data-entity-1="ent0007" data-entity-2="ent0004" data-link-type="dependency" data-source-line="23" id="lnk11">
+      <ns0:path d="M842.22,90.3569 C808.79,107.9969 766.5515,130.3024 733.1415,147.9424" fill="none" id="ClientInformation-to-ClientInformationBackend" style="stroke:#181818;stroke-width:1;" />
+      <ns0:polygon fill="#181818" points="728.72,150.2769,738.5464,149.612,733.1415,147.9424,734.8112,142.5375,728.72,150.2769" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;" />
     </ns0:g>
   </ns0:g>
 </ns0:svg>
