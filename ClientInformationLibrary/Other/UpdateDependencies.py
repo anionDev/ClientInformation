@@ -11,7 +11,7 @@ def update_data_from_submodule(codeunit_folder: str) -> None:
     codeunit_name: str = os.path.basename(codeunit_folder)
     repository_folder = GeneralUtilities.resolve_relative_path("..", codeunit_folder)
     datasubmodule_folder = GeneralUtilities.resolve_relative_path("Other/Resources/Submodules/ip-location-db", repository_folder)
-    geo_information_file = GeneralUtilities.resolve_relative_path("geolite2-geo-whois-asn-country/geolite2-geo-whois-asn-country-ipv4.csv", datasubmodule_folder)
+    geo_information_file = GeneralUtilities.resolve_relative_path("geolite2-country/geolite2-country-ipv4.csv", datasubmodule_folder)
     target_folder = GeneralUtilities.resolve_relative_path(f"{codeunit_name}/Data/GeoIPData.csv", codeunit_folder)
     shutil.copyfile(geo_information_file, target_folder)
 
