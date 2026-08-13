@@ -3,5 +3,5 @@
     xmlns:cps="https://projects.aniondev.de/PublicProjects/Common/ProjectTemplates/-/tree/main/Conventions/RepositoryStructure/CommonProjectStructure"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <cps:producttitle>ClientInformation</cps:producttitle>
-    <cps:remoteaddress>https://github.com/anionDev/ClientInformation</cps:remoteaddress>
+    <cps:remoteaddress>https://github.com/anionDevelopment/ClientInformation</cps:remoteaddress>
 </cps:productinformation>

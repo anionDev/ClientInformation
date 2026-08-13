@@ -11,8 +11,8 @@
     <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
     <Copyright>Copyright © 2026 Marius Göcke</Copyright>
     <Description>ClientInformationLibraryTests is the test-project for ClientInformationLibrary.</Description>
-    <PackageProjectUrl>https://github.com/anionDev/ClientInformation</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/anionDev/ClientInformation.git</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/anionDevelopment/ClientInformation</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/anionDevelopment/ClientInformation.git</RepositoryUrl>
     <RootNamespace>ClientInformationLibrary.Tests</RootNamespace>
     <ProduceReferenceAssembly>false</ProduceReferenceAssembly>
     <Nullable>enable</Nullable>

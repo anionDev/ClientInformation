@@ -11,8 +11,8 @@
     <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
     <Copyright>Copyright © 2025 Marius Göcke</Copyright>
     <Description>ClientInformationBackendTests is the test-project for ClientInformationBackend.</Description>
-    <PackageProjectUrl>https://github.com/anionDev/ClientInformationBackend</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/anionDev/ClientInformationBackend.git</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/anionDevelopment/ClientInformation</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/anionDevelopment/ClientInformation.git</RepositoryUrl>
     <RootNamespace>ClientInformation.Backend.Tests</RootNamespace>
     <ProduceReferenceAssembly>false</ProduceReferenceAssembly>
     <Nullable>enable</Nullable>

@@ -11,8 +11,8 @@
     <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
     <Copyright>Copyright © 2026 Marius Göcke</Copyright>
     <Description>ClientInformationLibrary is a shared library containing common types and helpers used by ClientInformation and ClientInformationBackend.</Description>
-    <PackageProjectUrl>https://github.com/anionDev/ClientInformation</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/anionDev/ClientInformation.git</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/anionDevelopment/ClientInformation</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/anionDevelopment/ClientInformation.git</RepositoryUrl>
     <RootNamespace>ClientInformation.Library.Core</RootNamespace>
     <ProduceReferenceAssembly>false</ProduceReferenceAssembly>
     <Nullable>enable</Nullable>
